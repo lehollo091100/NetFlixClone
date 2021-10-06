@@ -4,6 +4,8 @@ import background from '../../image/background.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import Slider from "react-slick";
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 function Home() {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
@@ -17,10 +19,13 @@ function Home() {
         })
     }, [])
     const settings = {
+        className: "center",
         infinite: false,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 6,      
+        lazyLoad:true,
+        centerPadding: "60px",
         responsive: [
             {
               breakpoint: 1024,
@@ -54,6 +59,7 @@ function Home() {
       }
     return (
         <div className="home">
+            <Header></Header>
             <div className="home__start">
                 <div className="home__start-wrapper">
                     <img className="home__start-background" src="https://occ-0-325-395.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABc5MwMGTLgLIUHz4GoejmJxHbbebq628L2xETbeouq62894K4b2RewxTb2-2T2zN3u7CYHHss7rDZX40gEGY3QebyVFnybJJBpqq.webp?r=047" alt="" />
@@ -94,13 +100,13 @@ function Home() {
                         <div className="home__slider-item">
                             <img className="home__slider-item-img" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                             <div className="home__slider-detail">
-                                <div className="home__item-img">
+                                {/* <div className="home__item-img">
                                     <img src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                                     <div className="mute__icon" onClick={handleMuteItem}>
                                         <FontAwesomeIcon className="iconvolumn" icon="volume-mute"></FontAwesomeIcon>
                                         <FontAwesomeIcon className="iconvolumn" icon="volume-up"></FontAwesomeIcon>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="detail__item-button">
                                     <div className="item__button-left">
                                         <span>
@@ -137,6 +143,7 @@ function Home() {
                                     <span>Chính kịch</span>
                                 </div>
                             </div>
+                        
                         </div>
                         ))
                     }
@@ -144,10 +151,13 @@ function Home() {
                     
                 </Slider>
             </div>
+            
+
+
             <div className="home__slider">
                 <a href="" className="home__slider-header">
                     <span>
-                        Top 10 tại Việt Nam hôm nay
+                        Hiện đang hiện hành
                         <span className="watch__all">
                             <span>Xem tất cả</span>
                             <FontAwesomeIcon icon="chevron-right" className="home__slider-arrowright"></FontAwesomeIcon>
@@ -160,13 +170,13 @@ function Home() {
                         <div className="home__slider-item">
                             <img className="home__slider-item-img" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                             <div className="home__slider-detail">
-                                <div className="home__item-img">
+                                {/* <div className="home__item-img">
                                     <img src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                                     <div className="mute__icon" onClick={handleMuteItem}>
                                         <FontAwesomeIcon className="iconvolumn" icon="volume-mute"></FontAwesomeIcon>
                                         <FontAwesomeIcon className="iconvolumn" icon="volume-up"></FontAwesomeIcon>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="detail__item-button">
                                     <div className="item__button-left">
                                         <span>
@@ -203,11 +213,13 @@ function Home() {
                                     <span>Chính kịch</span>
                                 </div>
                             </div>
+                        
                         </div>
                         ))
                     }
                 </Slider>
             </div>
+            <Footer></Footer>
         </div>
     )
 }
