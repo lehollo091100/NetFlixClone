@@ -7,13 +7,25 @@ import { faSearch,faBell,faInfoCircle,faCaretRight,faUndoAlt,faChevronRight,faVo
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
+import {  BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
+import TruyenHinh from './components/TruyenHinh/TruyenHinh';
 function App() {
   return (
-    <div className="App">
-      {/* <Header></Header> */}
-      {/* <Home></Home> */}
-      <Manage></Manage>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/truyenhinh">
+            <TruyenHinh></TruyenHinh>
+          </Route>
+          <Route path="/">
+            <Manage></Manage>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

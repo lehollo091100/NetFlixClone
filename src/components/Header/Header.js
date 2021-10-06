@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
+import axios from 'axios'
 import './Header.css'
 import logo from '../../image/netflixlogo.jpg'
 import avatar from '../../image/avatar.png'
@@ -7,12 +8,22 @@ function Header() {
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
     }
+    const [movieList,setMovieList]=useState([])
+    useEffect(() => {
+        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=070460ee0b557df99bd8fd941d183e23')
+        .then(function(response){
+            setMovieList(response.data.results.slice(0,6));
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }, [])
     return (
         <div className="header">
             <div className="header__container">
                 <div className="container">
                     <div className="header__wrapper">
-                        <a className="header__logo">
+                        <a className="header__logo" href="/home">
                             <img src={logo} alt="" />
                         </a>
                         <ul className="header__navigation">
@@ -31,10 +42,10 @@ function Header() {
                                 </ul>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="" className="tab" >Trang chủ</a>
+                                <a href="/home" className="tab" >Trang chủ</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="" className="tab">Phim T.hình</a>
+                                <a href="/truyenhinh" className="tab">Phim T.hình</a>
                             </li>
                             <li className="header__navigation-tab">
                                 <a href="" className="tab">Phim</a>
@@ -48,7 +59,25 @@ function Header() {
                         </ul>
                         <div className="header__right">
                             <FontAwesomeIcon className="icon" icon="search"></FontAwesomeIcon>
-                            <FontAwesomeIcon className="icon" icon="bell"></FontAwesomeIcon>
+                            <div className="header__noti">
+                                <FontAwesomeIcon className="icon" icon="bell"></FontAwesomeIcon>
+                                <ul className="noti__list">
+                                    {movieList && movieList.map(movie=>(
+                                        <li className="noti__list-item">
+                                            <img src={'https://image.tmdb.org/t/p/original'.concat(movie.backdrop_path)} alt="" className="noti__image" />
+                                            <div className="noti__detail">
+                                                <div className="noti__detail-title">
+                                                    {movie.original_title}
+                                                </div>
+                                                <span className="noti__detail-date">
+                                                    {movie.release_date}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    ))}
+                                    
+                                </ul>
+                            </div>
                             <div className="header__avatar">
                                 <img src={avatar} alt="" />
                                 <span className="header__avatar-arrow"></span>

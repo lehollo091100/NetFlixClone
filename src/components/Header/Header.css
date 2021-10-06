@@ -213,6 +213,57 @@
   transition: all 0.2s linear;
 }
 
+.header .header__noti {
+  position: relative;
+}
+
+.header .header__noti .noti__list {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 390px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  border-top: 1px white solid;
+  max-height: 430px;
+  overflow-y: scroll;
+  transition: all 0.2s linear;
+}
+.header .header__noti:hover .noti__list {
+  opacity: 1;
+  visibility: visible;
+}
+.noti__list .noti__list-item {
+  display: flex;
+  padding: 20px;
+  border-bottom: 0.5px rgb(185, 182, 182, 0.5) solid;
+  background: transparent;
+}
+.noti__list .noti__list-item:hover {
+  background: rgba(0, 0, 0, 0.95);
+}
+.noti__list .noti__list-item img {
+  width: 103px;
+  height: 56px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.noti__list .noti__list-item .noti__detail {
+  width: 70%;
+}
+.noti__list .noti__list-item .noti__detail .noti__detail-title {
+  font-size: 16px;
+  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+.noti__list-item .noti__detail .noti__detail-date {
+  font-size: 12px;
+  line-height: 1.3;
+  color: grey;
+}
+
 /*=============================RESPONSIVE======================= */
 @media (max-width: 320px) {
   .header__container .header__logo {
