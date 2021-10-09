@@ -10,12 +10,12 @@ function TruyenHinh({cate}) {
         document.querySelector('.category__wrapper').classList.toggle('active')
     }
     return (
-        <div className="cate1">
+        <div className="cate">
             <Header></Header>
-            <div className="cate1__wrapper">
-                <div className="cate1__header">
-                    <div className="cate1__header-left">
-                        <h1>Phim T.hình</h1>
+            <div className="cate__wrapper">
+                <div className="cate__header">
+                    <div className="cate__header-left">
+                        <h1>{cate}</h1>
                         <span className="category__button" onClick={cateClick}>Thể loại
                             <FontAwesomeIcon className="caretdown" icon="caret-down"></FontAwesomeIcon>
                             <div className="category__wrapper">
@@ -72,7 +72,7 @@ function TruyenHinh({cate}) {
                             </div>
                         </span>
                     </div>
-                    <div className="cate1__header-right">
+                    <div className="cate__header-right">
                         <FontAwesomeIcon className="alignleft" icon="align-left"></FontAwesomeIcon>
                         <FontAwesomeIcon className="thlarge" icon="th-large"></FontAwesomeIcon>
                     </div>

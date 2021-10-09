@@ -35,10 +35,10 @@ function Header() {
                                 <ul className="menu__mobile">
                                     <span className="header__avatar-arrow-up"></span>
                                     <li className="menu__mobile-tab"><a href="" >Trang chủ</a></li>
-                                    <li className="menu__mobile-tab"><a href="">Phim T.hình</a></li>
-                                    <li className="menu__mobile-tab"><a href="">Phim</a></li>
-                                    <li className="menu__mobile-tab"><a href="">Mới & Phổ biến</a></li>
-                                    <li className="menu__mobile-tab"><a href="">Danh sách của tôi</a></li>
+                                    <li className="menu__mobile-tab"><a href="/truyenhinh">Phim T.hình</a></li>
+                                    <li className="menu__mobile-tab"><a href="/phim">Phim</a></li>
+                                    <li className="menu__mobile-tab"><a href="/moivaphobien">Mới & Phổ biến</a></li>
+                                    <li className="menu__mobile-tab"><a href="/mylist">Danh sách của tôi</a></li>
                                 </ul>
                             </li>
                             <li className="header__navigation-tab">
@@ -48,13 +48,13 @@ function Header() {
                                 <a href="/truyenhinh" className="tab">Phim T.hình</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="" className="tab">Phim</a>
+                                <a href="/phim" className="tab">Phim</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="" className="tab">Mới & Phổ biến</a>
+                                <a href="/moivaphobien" className="tab">Mới & Phổ biến</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="" className="tab">Danh sách của tôi</a>
+                                <a href="/mylist" className="tab">Danh sách của tôi</a>
                             </li>
                         </ul>
                         <div className="header__right">
