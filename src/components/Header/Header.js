@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import './Header.css'
-import logo from '../../image/netflixlogo.jpg'
+import logo from '../../image/netflixlogo.png'
 import avatar from '../../image/avatar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Header() {

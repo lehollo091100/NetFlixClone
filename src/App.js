@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
 import {  BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
 import TruyenHinh from './components/TruyenHinh/TruyenHinh';
+import Login from './components/Login/Login';
+import Signup from './components/Login/Signup';
 function App() {
   return (
     <Router>
@@ -28,6 +30,12 @@ function App() {
           </Route>
           <Route path="/mylist">
             <TruyenHinh cate="Danh sách của tôi"></TruyenHinh>
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/signup">
+            <Signup/>
           </Route>
           <Route path="/">
             <Manage></Manage>
