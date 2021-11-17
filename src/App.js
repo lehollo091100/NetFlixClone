@@ -11,6 +11,7 @@ import {  BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
 import TruyenHinh from './components/TruyenHinh/TruyenHinh';
 import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
+import Intro from './components/Intro/Intro';
 function App() {
   return (
     <Router>
@@ -38,7 +39,7 @@ function App() {
             <Signup/>
           </Route>
           <Route path="/">
-            <Manage></Manage>
+            <Intro/>
           </Route>
         </Switch>
       </div>
