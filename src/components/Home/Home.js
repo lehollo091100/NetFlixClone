@@ -11,7 +11,7 @@ function Home() {
 
     return (
         <div className="home">
-            <Header></Header>
+            <Header cate="home"></Header>
             <div className="home__start">
                 <div className="home__start-wrapper">
                     <img className="home__start-background" src="https://occ-0-325-395.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABc5MwMGTLgLIUHz4GoejmJxHbbebq628L2xETbeouq62894K4b2RewxTb2-2T2zN3u7CYHHss7rDZX40gEGY3QebyVFnybJJBpqq.webp?r=047" alt="" />

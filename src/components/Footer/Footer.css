@@ -1,6 +1,6 @@
 .footer {
   color: grey;
-  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .footer a {
   color: grey;
@@ -8,6 +8,7 @@
 .footer__wrapper {
   width: 74vw;
   margin: 0 auto;
+  padding: 60px 0;
 }
 .footer__icon {
   font-size: 30px;

@@ -1,8 +1,11 @@
+:root {
+  --red: #e50914;
+}
 a {
   text-decoration: none;
 }
 * {
-  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 body {
   display: block;
@@ -33,7 +36,7 @@ ul {
   color: white;
   /* padding: 0px 0px 0px 5vw; */
   margin: 48px 0;
-  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .home__slider .home__slider-header {
   display: block;

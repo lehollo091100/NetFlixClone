@@ -82,12 +82,16 @@
 }
 
 .header .header__wrapper .header__navigation .tab {
+  transition: all 0.2s linear;
   margin-left: 20px;
   color: white;
-  opacity: 0.8;
   font-size: 14px;
   font-weight: 500;
   font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header .header__wrapper .header__navigation .tab:hover {
+  opacity: 0.8;
 }
 .header .header__wrapper .header__right {
   position: absolute;
