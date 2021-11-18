@@ -4,6 +4,7 @@ import './Header.css'
 import logo from '../../image/netflixlogo.png'
 import avatar from '../../image/avatar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom';
 function Header() {
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
@@ -18,6 +19,7 @@ function Header() {
             console.log(error)
         })
     }, [])
+
     return (
         <div className="header">
             <div className="header__container">
@@ -42,16 +44,16 @@ function Header() {
                                 </ul>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/home" className="tab" >Trang chủ</a>
+                                <Link to="/home" className="tab">Trang chủ</Link>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/truyenhinh" className="tab">Phim T.hình</a>
+                                <Link to="/truyenhinh" className="tab" >Phim T.hình</Link>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/phim" className="tab">Phim</a>
+                                <a href="/phim" className="tab" >Phim</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/moivaphobien" className="tab">Mới & Phổ biến</a>
+                                <a href="/moivaphobien" className="tab" >Mới & Phổ biến</a>
                             </li>
                             <li className="header__navigation-tab">
                                 <a href="/mylist" className="tab">Danh sách của tôi</a>
