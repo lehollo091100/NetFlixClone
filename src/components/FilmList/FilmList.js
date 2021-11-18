@@ -64,7 +64,7 @@ function FilmList() {
                             <div className="home__slider-detail">
                                 <div className="detail__item-info">
                                     <div className="detail__item-infoleft">
-                                        Venom
+                                        {movie.original_title}
                                     </div>
                                     <div className="detail__item-inforight">
                                         <span>2h30m</span>

@@ -48,9 +48,6 @@ function Header() {
                                 <a to="/home" className="tab">Trang chủ</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a to="/truyenhinh" className="tab" >Phim T.hình</a>
-                            </li>
-                            <li className="header__navigation-tab">
                                 <a href="/phim" className="tab" >Phim</a>
                             </li>
                             <li className="header__navigation-tab">

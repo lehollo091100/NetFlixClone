@@ -4,8 +4,11 @@
   width: 90% !important;
   margin: 0 auto;
   display: block !important;
+  background-color: black;
 }
-
+a {
+  cursor: pointer;
+}
 .filmlist {
   width: 90%;
   margin: 0 auto;
@@ -31,6 +34,7 @@
   cursor: pointer;
 }
 .home__slider-item:hover .home__slider-detail {
+  /* background: black; */
   position: absolute;
   display: flex;
   visibility: visible;
@@ -39,7 +43,6 @@
   width: 100%;
   color: white;
   box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
-  background: black;
 }
 .home__slider-item .home__slider-detail .home__item-img {
   width: 100%;
