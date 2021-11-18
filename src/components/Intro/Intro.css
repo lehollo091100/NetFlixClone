@@ -151,3 +151,123 @@
   width: 100%;
   object-fit: cover;
 }
+
+/* ======RESPONSIVE================ */
+
+/* =====================INTRO__BEGIN================= */
+@media (max-width: 480px) and (min-width: 320px) {
+  .intro__navbar .intro__navbar-logo {
+    width: 88px;
+    height: 24px;
+  }
+  .intro__navbar-right .intro__login {
+    font-size: 0.875rem;
+    padding: 7px 5px;
+  }
+  .intro__navbar-right .intro__language {
+    margin-right: 0.75rem;
+  }
+  .intro__title {
+    font-size: 1.75rem;
+  }
+  .intro__detail {
+    font-size: 1.125rem;
+    margin-top: 1rem;
+  }
+  .start__button {
+    font-size: 1rem;
+    padding: 1rem 1rem;
+  }
+
+  .intro__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    border-bottom: 5px grey solid;
+    /* width: 90%; */
+    padding: 40px 0;
+  }
+  .intro__info .intro__info-wrap {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .intro__info .intro__info-title {
+    font-size: 1.625rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .intro__info .intro__info-detail {
+    margin: 0.75em 0 0.25em;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  .intro__info .intro__info-left {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .intro__info .intro__info-left img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .intro__info .intro__info-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 480px) {
+  /* .intro__navbar .intro__navbar-logo {
+    width: 100px;
+    height: 24px;
+  } */
+  /* .intro__navbar-right .intro__login {
+    font-size: 0.875rem;
+  } */
+  /* .intro__navbar-right .intro__language {
+    margin-right: rem;
+  } */
+  .intro__title {
+    font-size: 2.25rem;
+  }
+  .intro__detail {
+    font-size: 1.75rem;
+    margin-top: 1.5rem;
+  }
+  .start__button {
+    font-size: 1rem;
+    padding: 1rem 1rem;
+  }
+
+  .intro__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    border-bottom: 5px grey solid;
+    /* width: 90%; */
+    padding: 60px 0;
+  }
+  .intro__info .intro__info-wrap {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .intro__info .intro__info-title {
+    font-size: 1.625rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .intro__info .intro__info-detail {
+    margin: 0.75em 0 0.25em;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  .intro__info .intro__info-left {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .intro__info .intro__info-right {
+    width: 100%;
+  }
+}
