@@ -54,3 +54,15 @@
   display: inline-block;
   margin-bottom: 10px;
 }
+
+/* =RESPONSIVE================= */
+@media (max-width: 480px) and (min-width: 320px) {
+  .footer__middle {
+    grid-template-columns: 100%;
+  }
+}
+@media (max-width: 768px) and (min-width: 480px) {
+  .footer__middle {
+    grid-template-columns: 50% 50%;
+  }
+}
