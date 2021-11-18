@@ -5,6 +5,7 @@ import intro1 from '../../image/intro1.png'
 import intro2 from '../../image/intro2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from './../Footer/Footer';
+import { Link } from 'react-router-dom';
 function Intro() {
     const chooseLanguage=()=>{
         document.querySelector('.intro__language-choice').classList.toggle('flex');
@@ -33,7 +34,7 @@ function Intro() {
                                 <span   className="language__choice">EngLish</span>
                             </div>
                         </span>
-                        <a className="intro__login">Đăng nhập</a>
+                        <Link to="/" className="intro__login">Đăng nhập</Link>
                     </div>
                 </div>
                 <div className="intro__middle">
@@ -46,10 +47,10 @@ function Intro() {
                     <div className="intro__detail">
                         Bạn đã sẵn sàng xem chưa?
                     </div>
-                    <div className="start__button">
+                    <Link to="/home" className="start__button">
                         Bắt đầu
                         <FontAwesomeIcon icon="chevron-right"></FontAwesomeIcon>
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className="intro__info intro__info1">

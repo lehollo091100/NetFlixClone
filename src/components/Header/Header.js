@@ -1,7 +1,8 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import './Header.css'
-import logo from '../../image/netflixlogo.jpg'
+// import logo from '../../image/netflixlogo.jpg'
+import logo from '../../image/Logo.png'
 import avatar from '../../image/avatar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
@@ -44,10 +45,10 @@ function Header() {
                                 </ul>
                             </li>
                             <li className="header__navigation-tab">
-                                <Link to="/home" className="tab">Trang chủ</Link>
+                                <a to="/home" className="tab">Trang chủ</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <Link to="/truyenhinh" className="tab" >Phim T.hình</Link>
+                                <a to="/truyenhinh" className="tab" >Phim T.hình</a>
                             </li>
                             <li className="header__navigation-tab">
                                 <a href="/phim" className="tab" >Phim</a>

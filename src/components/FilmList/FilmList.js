@@ -20,10 +20,10 @@ function FilmList() {
     }
     const settings = {
         // className: "center",
-        infinite: false,
+        infinite: true,
         speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 5,      
+        slidesToShow: 3,
+        slidesToScroll: 3,      
         lazyLoad:true,
         // centerPadding: "60px",
         responsive: [
@@ -32,8 +32,8 @@ function FilmList() {
               settings: {
                 infinite: false,
                 speed: 500,
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 3,
               }
             },
             {
@@ -41,8 +41,8 @@ function FilmList() {
               settings: {
                 infinite: false,
                 speed: 500,
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
               }
             },
             {
@@ -62,46 +62,18 @@ function FilmList() {
                         <div className="home__slider-item">
                             <img className="home__slider-item-img" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                             <div className="home__slider-detail">
-                                {/* <div className="home__item-img">
-                                    <img src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
-                                    <div className="mute__icon" onClick={handleMuteItem}>
-                                        <FontAwesomeIcon className="iconvolumn" icon="volume-mute"></FontAwesomeIcon>
-                                        <FontAwesomeIcon className="iconvolumn" icon="volume-up"></FontAwesomeIcon>
-                                    </div>
-                                </div> */}
-                                <div className="detail__item-button">
-                                    <div className="item__button-left">
-                                        <span>
-                                            <FontAwesomeIcon className="icon" icon="play"></FontAwesomeIcon>
-                                        </span><span>
-                                            <FontAwesomeIcon className="icon" icon="plus"></FontAwesomeIcon>
-                                        </span><span>
-                                            <FontAwesomeIcon className="icon" icon="thumbs-up"></FontAwesomeIcon>
-                                        </span><span>
-                                            <FontAwesomeIcon className="icon" icon="thumbs-down"></FontAwesomeIcon>
-                                        </span>
-                                    </div>
-                                    <div className="item__button-right">
-                                        <span>
-                                            <FontAwesomeIcon className="icon" icon="chevron-down"></FontAwesomeIcon>
-                                        </span>
-                                    </div>
-                                </div>
                                 <div className="detail__item-info">
-                                    <span className="item__similarity">
-                                        Độ trùng : 98%
-                                    </span>
-                                    <span className="item__age">
-                                        18+
-                                    </span>
-                                    <span className="iem__season">
-                                        3 Mùa
-                                    </span>
-                                    <span className="item__standard">HD</span>
+                                    <div className="detail__item-infoleft">
+                                        Venom
+                                    </div>
+                                    <div className="detail__item-inforight">
+                                        <span>2h30m</span>
+                                        <span>HD</span>
+                                    </div>
                                 </div>
                                 <div className="detail__item-categories">
-                                    <span>Bạo lực-</span>
-                                    <span>Thời kì lịch sử-</span>
+                                    <span>Bạo lực - </span>
+                                    <span>Thời kì lịch sử - </span>
                                     <span>Chính kịch</span>
                                 </div>
                             </div>

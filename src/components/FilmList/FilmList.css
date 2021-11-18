@@ -1,6 +1,15 @@
 .home__slider-item {
   position: relative;
   z-index: 4;
+  width: 90% !important;
+  margin: 0 auto;
+  display: block !important;
+}
+
+.filmlist {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .home__slider-item:hover {
   /* transform: scale(1.5); */
@@ -19,9 +28,6 @@
   top: 100%;
   left: 0;
   z-index: 2;
-  /* opacity: 0;
-    visibility: hidden; */
-  /* transition: all 0.5s linear; */
   cursor: pointer;
 }
 .home__slider-item:hover .home__slider-detail {
@@ -45,7 +51,7 @@
   width: 100%;
   height: 100%;
 }
-.home__slider-item .home__slider-detail .home__item-img .mute__icon {
+/* .home__slider-item .home__slider-detail .home__item-img .mute__icon {
   position: relative;
   left: 300px;
   bottom: 30px;
@@ -80,9 +86,9 @@
 .home__item-img .mute__icon.mute .iconvolumn:last-child {
   visibility: hidden;
   opacity: 0;
-}
+} */
 
-.detail__item-button {
+/* .detail__item-button {
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -102,32 +108,23 @@
 }
 .detail__item-button span:hover {
   border: 1px white solid;
-}
+} */
 
 .detail__item-info {
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
 }
-.detail__item-info span {
-  margin-right: 10px;
+.detail__item-info .detail__item-infoleft {
+  font-size: 24px;
 }
-.detail__item-info .item__similarity {
-  font-weight: 700;
-  color: #46d369;
-}
-.detail__item-info .item__age {
+.detail__item-info .detail__item-inforight span {
+  font-size: 14px;
+  padding: 5px 10px;
   border: 1px white solid;
-  padding: 0 5px;
-  font-weight: 700;
-}
-.detail__item-info .item__season {
-  font-weight: 700;
-}
-.detail__item-info .item__standard {
-  font-size: 12px;
-  border: 1px white solid;
-  padding: 0 3px;
+  margin: 0 10px;
 }
 
 .detail__item-categories {
