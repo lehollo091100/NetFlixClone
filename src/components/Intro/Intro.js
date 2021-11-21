@@ -1,6 +1,6 @@
 import React from 'react'
 import  './Intro.css'
-import logo from '../../image/netflixlogo.jpg'
+import logo from '../../image/netflixlogo.png'
 import intro1 from '../../image/intro1.png'
 import intro2 from '../../image/intro2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

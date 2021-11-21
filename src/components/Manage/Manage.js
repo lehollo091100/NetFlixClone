@@ -1,6 +1,6 @@
 import React from 'react'
 import './Manage.css'
-import logo from '../../image/netflixlogo.jpg'
+import logo from '../../image/netflixlogo.png'
 import avatar from '../../image/avatar.png'
 import {Link} from "react-router-dom"
 function Manage() {
