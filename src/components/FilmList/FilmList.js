@@ -59,7 +59,7 @@ function FilmList() {
             <Slider {...settings}>
                     {
                         movieList&&movieList.map(movie=>(
-                        <div className="home__slider-item">
+                        <a className="home__slider-item" href="/phim/detail">
                             <img className="home__slider-item-img" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                             <div className="home__slider-detail">
                                 <div className="detail__item-info">
@@ -78,7 +78,7 @@ function FilmList() {
                                 </div>
                             </div>
                         
-                        </div>
+                        </a>
                         ))
                     }
                     

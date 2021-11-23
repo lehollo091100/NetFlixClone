@@ -47,10 +47,10 @@ function Intro() {
                     <div className="intro__detail">
                         Bạn đã sẵn sàng xem chưa?
                     </div>
-                    <Link to="/home" className="start__button">
+                    <a href="/home" className="start__button">
                         Bắt đầu
                         <FontAwesomeIcon icon="chevron-right"></FontAwesomeIcon>
-                    </Link>
+                    </a>
                 </div>
             </div>
             <div className="intro__info intro__info1">

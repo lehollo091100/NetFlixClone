@@ -1,5 +1,6 @@
 :root {
   --red: #e50914;
+  --grey: #80808057;
 }
 a {
   text-decoration: none;
@@ -87,4 +88,11 @@ ul {
 }
 .home__slider .home__slider-header > span:hover .home__slider-arrowright {
   font-size: 14px;
+}
+
+.title {
+  font-size: 1.4vw;
+  line-height: 1.25vw;
+  font-weight: 550;
+  color: white;
 }

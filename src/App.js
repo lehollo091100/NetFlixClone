@@ -12,11 +12,15 @@ import TruyenHinh from './components/TruyenHinh/TruyenHinh';
 import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
 import Intro from './components/Intro/Intro';
+import DetailPage from './components/DetailPage/DetailPage';
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/phim/detail">
+            <DetailPage></DetailPage>
+          </Route>
           <Route path="/home">
             <Home></Home>
           </Route>
