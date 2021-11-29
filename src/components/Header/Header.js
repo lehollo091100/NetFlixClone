@@ -1,12 +1,8 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import './Header.css'
-<<<<<<< HEAD
 // import logo from '../../image/netflixlogo.jpg'
 import logo from '../../image/Logo.png'
-=======
-import logo from '../../image/netflixlogo.png'
->>>>>>> tinpham
 import avatar from '../../image/avatar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
