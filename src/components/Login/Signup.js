@@ -4,8 +4,12 @@ import logo from '../../image/netflixlogo.png'
 import exit from '../../image/exit.png'
 import wrapper from '../../image/wrapper.jpg'
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 function Signup(){
+    let history = useHistory(); 
+    function Close(){
+        history.push("/");
+    }
     return (
         <div className="Signup">
             <div className="Signup__container">
@@ -15,7 +19,7 @@ function Signup(){
                     <img src={logo} alt=" " />
                 </a>
                 <div className="Signup__modal">
-                    <button className="Signup__modal-exit">
+                    <button className="Signup__modal-exit" onClick={Close}>
                         <img src={exit}></img>
                     </button>
                     <div className="Signup__modal-title">

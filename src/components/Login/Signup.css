@@ -213,8 +213,8 @@
 
 @media screen and (min-width: 900px) {
     .Signup__container .Signup__modal{
-        width: 37%;
-        height: 73%;
+        width: 32%;
+        height: 69%;
         margin-top: 1%;
     }
     .Signup__container .Signup__modal .Signup__modal-title{

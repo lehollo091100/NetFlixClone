@@ -10,12 +10,12 @@ function Intro() {
     const chooseLanguage=()=>{
         document.querySelector('.intro__language-choice').classList.toggle('flex');
     }
-    document.addEventListener('mouseup', function(e) {
+    /*document.addEventListener('mouseup', function(e) {
         let container = document.querySelector('.intro__language');
         if (!container.contains(e.target)) {
             document.querySelector('.intro__language-choice').classList.remove('flex');
         }
-      });
+      });*/
     return (
         <div className="intro">
             <div className="intro__begin">
@@ -34,7 +34,7 @@ function Intro() {
                                 <span   className="language__choice">EngLish</span>
                             </div>
                         </span>
-                        <Link to="/" className="intro__login">Đăng nhập</Link>
+                        <Link to="/login" className="intro__login">Đăng nhập</Link>
                     </div>
                 </div>
                 <div className="intro__middle">
