@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import  './Intro.css'
 import logo from '../../image/netflixlogo.png'
 import intro1 from '../../image/intro1.png'
 import intro2 from '../../image/intro2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from './../Footer/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 function Intro() {
+    const [token, setToken] = useState(false);
     const chooseLanguage=()=>{
         document.querySelector('.intro__language-choice').classList.toggle('flex');
     }
@@ -16,6 +17,15 @@ function Intro() {
             document.querySelector('.intro__language-choice').classList.remove('flex');
         }
       });*/
+    useEffect(()=>{
+        function getToken(){
+            if(localStorage.getItem("token")!= null)
+            {
+               setToken(true);
+            }
+        }
+        getToken();
+    },[])
     return (
         <div className="intro">
             <div className="intro__begin">
@@ -34,7 +44,10 @@ function Intro() {
                                 <span   className="language__choice">EngLish</span>
                             </div>
                         </span>
+                        {
+                            token? <Link to="/home" className="intro__login">Đăng nhập</Link>:
                         <Link to="/login" className="intro__login">Đăng nhập</Link>
+                        }
                     </div>
                 </div>
                 <div className="intro__middle">

@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FilmList from './../FilmList/FilmList';
 import avater from '../../image/Avatar (1).png'
 import Footer from './../Footer/Footer';
+import { Link, Route, Router, Switch, useHistory } from 'react-router-dom';
+import WatchPage from '../WatchPage/WatchPage';
 function DetailPage() {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
@@ -19,6 +21,7 @@ function DetailPage() {
         })
     }, [])
     return (
+        <>
         <div className="detail">
             <Header cate="home"></Header>
             <div className="detail__introduce">
@@ -57,11 +60,13 @@ function DetailPage() {
                         <div className="detail__introduce-info">
                             Quốc gia: Mỹ
                         </div>
-                        <div className="detail__introduce-button">
-                            <span>
+                        <div className="detail__introduce-button">\
+                        <a href="/phim/detail/watch">
+                            <span >
                                 <FontAwesomeIcon icon="play"></FontAwesomeIcon>
-                                Xem ngay 
+                                Xem ngay
                             </span>
+                            </a>
                             <span>
                                 <FontAwesomeIcon icon="plus"></FontAwesomeIcon>
                                 Phim của tôi
@@ -137,6 +142,7 @@ function DetailPage() {
             </div>
             <Footer></Footer>
         </div>
+        </>
     )
 }
 

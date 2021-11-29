@@ -91,7 +91,7 @@
     border: 2px solid red;
 }
 
-.Login__modal .Login__modal-panel input[type="submit"]{
+.Login__modal .Login__modal-panel button{
     width: 70%;
     padding: 10px 20px;
     outline: none;

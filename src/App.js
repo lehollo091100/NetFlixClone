@@ -13,13 +13,17 @@ import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
 import Intro from './components/Intro/Intro';
 import DetailPage from './components/DetailPage/DetailPage';
+import WatchPage from './components/WatchPage/WatchPage';
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/phim/detail">
+          <Route exact path="/phim/detail">
             <DetailPage></DetailPage>
+          </Route>
+          <Route path="/phim/detail/watch">
+            <WatchPage/>
           </Route>
           <Route path="/home">
             <Home></Home>

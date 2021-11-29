@@ -4,7 +4,7 @@
   width: 90% !important;
   margin: 0 auto;
   display: block !important;
-  background-color: black;
+  background-color: black !important;
 }
 a {
   cursor: pointer;
@@ -121,7 +121,7 @@ a {
   margin-top: 30px;
 }
 .detail__item-info .detail__item-infoleft {
-  font-size: 24px;
+  font-size: 20px;
 }
 .detail__item-info .detail__item-inforight span {
   font-size: 14px;

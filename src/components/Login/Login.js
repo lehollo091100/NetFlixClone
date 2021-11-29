@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css'
 import logo from '../../image/netflixlogo.png'
 import exit from '../../image/exit.png'
 import wrapper from '../../image/wrapper.jpg'
 import Footer from '../Footer/Footer';
 import { Link, useHistory } from 'react-router-dom';
+import Home from '../Home/Home';
 
 function Login(){
     let history = useHistory();
+    const [success, setSuccess]= useState(false);
     function Close(){
         history.goBack();
     }
+
+    const LoginHandler = e =>{
+        e.preventDefault();
+        let username = document.getElementById("text").value;
+        let password = document.getElementById("password").value;
+        if(username === "tinpham1510" && password === "12345678")
+        {
+            setSuccess(true);
+            history.push('/home');
+            localStorage.setItem("token" ,"12345678");
+        }
+        console.log(success);
+    }
     return (
+        <>
+        {
+            success ? <Home/>:
         <div className="Login">
             <div className="Login__container">
                 <div className="Login__container-wrapper">
@@ -23,25 +41,27 @@ function Login(){
                     <button className="Login__modal-exit" onClick={Close}>
                         <img src={exit}></img>
                     </button>
-                    <div className="Login__modal-title">
-                            Xin chào,
-                    </div>
-                    <div className="Login__modal-content">
-                            Đăng nhập hoặc tạo tài khoản mới
-                    </div>
-                    <div className="Login__modal-panel">
-                        <br/>
-                        <a>
-                            <input  placeholder="Email hoặc số điện thoại"></input>
-                        </a>
-                        <a>
-                            <input  type="password" placeholder="Mật khẩu" ></input>
-                        </a>
-                    </div>
-                    <div className="Login__modal-panel">
-                        <br/>
-                        <input  type="submit" value="Đăng nhập"></input>
-                    </div>
+                    <form>
+                        <div className="Login__modal-title">
+                                Xin chào,
+                        </div>
+                        <div className="Login__modal-content">
+                                Đăng nhập hoặc tạo tài khoản mới
+                        </div>
+                        <div className="Login__modal-panel">
+                            <br/>
+                            <a>
+                                <input  placeholder="Email hoặc số điện thoại" id="text"></input>
+                            </a>
+                            <a>
+                                <input  type="password" placeholder="Mật khẩu" id="password" ></input>
+                            </a>
+                        </div>
+                        <div className="Login__modal-panel">
+                            <br/>
+                            <button onClick={LoginHandler}> Đăng nhập</button>
+                        </div>
+                    </form>
                     <div className="Login__modal-tocheck">
                         <a className="Login__tocheck-Bx">
                             <input type="checkbox" style={{border: "1px solid red"}}></input>
@@ -85,6 +105,8 @@ function Login(){
             <br/>
             <Footer/>
         </div>
+}
+        </>
     );
 }
 
