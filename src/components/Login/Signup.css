@@ -64,7 +64,7 @@
 }
 
 .Signup__container .Signup__modal .Signup__modal-title{
-    margin-top: 5%;
+    margin-top: -7%;
     margin-bottom: 1%;
     font-size: 30px; 
 }
@@ -97,20 +97,26 @@
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 2px solid red;
+    border: none;
     font-size: 14px;
     letter-spacing: 1px;
     color: white;
-    background-color:red;
+    background-color:#CD0000;
     border-radius: 10px;
     margin-bottom: 3%;
     transition: background-color .3s ease;
 }
 
 .Signup__modal .Signup__modal-panel input[type="submit"]:hover{
-    background-color: red;
+    background-color: #EA0707;
     cursor: pointer;
 }
+
+.Signup__modal .Signup__modal-panel input[type="submit"]:active{
+    cursor: pointer;
+    box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.4);
+}
+
 
 /*-----------------------Signup Modal CheckBox and Forgot pass-----------------------------r*/
 .Signup__modal .Signup__modal-tocheck{
@@ -161,13 +167,23 @@
     background-color: red;
     cursor: pointer;
 }
+/*--------------------------------Sign up Text Link*/
+.Signup__modal p a{
+    color: rgba(229, 9, 29, 0.75);
+}
+.Signup__modal p a:hover{
+    color: #E50914;
+}
 
+.Signup__modal p a:active{
+    color: white;
+}
 /*-----------------------Screen----------------------------r*/
 
 @media screen and (max-width: 900px) {
     .Signup__container .Signup__modal{
         width: 54%;
-        height: 70%;
+        height: 65%;
         margin-top: 3%;
         padding-top: 1%;
     }
@@ -190,7 +206,7 @@
 @media screen and (max-width: 425px) {
     .Signup__container .Signup__modal{
         width: 70%;
-        height: 72%;
+        height: 65%;
         margin-top: 12%;
         padding-top: 3%;
     }
@@ -214,11 +230,11 @@
 @media screen and (min-width: 900px) {
     .Signup__container .Signup__modal{
         width: 32%;
-        height: 69%;
+        height: 66%;
         margin-top: 1%;
     }
     .Signup__container .Signup__modal .Signup__modal-title{
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .Signup__container .Signup__modal .Signup__modal-content{

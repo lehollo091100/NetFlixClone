@@ -20,7 +20,7 @@ function Login(){
         let password = document.getElementById("password").value;
         if(username === "tinpham1510" && password === "12345678")
         {
-            setSuccess(true);
+            setSuccess(true);   
             history.push('/home');
             localStorage.setItem("token" ,"12345678");
         }
@@ -42,6 +42,7 @@ function Login(){
                         <img src={exit}></img>
                     </button>
                     <form>
+                        <img src={logo}alt="" style={{width: "45%", height: "45%" }}/>
                         <div className="Login__modal-title">
                                 Xin chào,
                         </div>
@@ -51,7 +52,7 @@ function Login(){
                         <div className="Login__modal-panel">
                             <br/>
                             <a>
-                                <input  placeholder="Email hoặc số điện thoại" id="text"></input>
+                                <input  type="email" placeholder="Email hoặc số điện thoại" id="text"></input>
                             </a>
                             <a>
                                 <input  type="password" placeholder="Mật khẩu" id="password" ></input>
@@ -64,12 +65,12 @@ function Login(){
                     </form>
                     <div className="Login__modal-tocheck">
                         <a className="Login__tocheck-Bx">
-                            <input type="checkbox" style={{border: "1px solid red"}}></input>
+                            <input type="checkbox" ></input>
                             <span>
                                 Lưu mật khẩu
                             </span>
                         </a>
-                        <a className="Login__tocheck-Bx" href="#" style={{color:"white"}}>
+                        <a className="Login__tocheck-Bx" href="#" style={{color:"#8C8C8C"}}>
                             <span>
                                 Quên mật khẩu?
                             </span>
@@ -96,7 +97,7 @@ function Login(){
                         </button>
                     </div>
                     <br/>
-                    <p style={{color: "whitesmoke", fontSize:"12px", marginTop: "-1%"}}>Bạn chưa có tài khoản? <a href="/signup" style={{color:"red"}}>
+                    <p style={{color: "#8C8C8C", fontSize:"12px", marginTop: "-1%"}}>Bạn chưa có tài khoản? <a href="/signup">
                             Đăng kí
                     </a> tại đây</p>
 

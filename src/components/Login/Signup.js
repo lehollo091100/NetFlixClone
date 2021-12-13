@@ -22,61 +22,49 @@ function Signup(){
                     <button className="Signup__modal-exit" onClick={Close}>
                         <img src={exit}></img>
                     </button>
-                    <div className="Signup__modal-title">
-                            Chào mừng bạn!
-                    </div>
-                    <div className="Signup__modal-content">
-                            Tham gia Netflix thật đơn giản.
-                    </div>
-                    <div className="Signup__modal-panel">
+                    <form>
+                        <img src={logo}alt="" style={{width: "45%", height: "45%" }}/>
+                        <div className="Signup__modal-title">
+                                Chào mừng bạn!
+                        </div>
+                        <div className="Signup__modal-content">
+                                Tham gia Netflix thật đơn giản.
+                        </div>
+                        <div className="Signup__modal-panel">
+                            <br/>
+                            <a>
+                                <input type="email" placeholder="Email hoặc số điện thoại"></input>
+                            </a>
+                            <a>
+                                <input  type="password" placeholder="Mật khẩu" ></input>
+                            </a>
+                            <a>
+                                <input  type="password" placeholder="Nhập lại mật khẩu" ></input>
+                            </a>
+                        </div>
+                        <div className="Signup__modal-panel">
+                            <br/>
+                            <input  type="submit" value="Đăng ký"></input>
+                        </div>
+                        <div className="Signup__modal-tocheck">
+                            <a className="Signup__tocheck-Bx">
+                                <input type="checkbox" style={{border: "1px solid red"}}></input>
+                                <span>
+                                    Tôi đồng ý với các điều khoản, điều kiện {"&"} chính sách của Netflix.
+                                </span>
+                            </a>
+                        </div>
                         <br/>
-                        <a>
-                            <input  placeholder="Email hoặc số điện thoại"></input>
-                        </a>
-                        <a>
-                            <input  type="password" placeholder="Mật khẩu" ></input>
-                        </a>
-                        <a>
-                            <input  type="password" placeholder="Nhập lại mật khẩu" ></input>
-                        </a>
-                    </div>
-                    <div className="Signup__modal-panel">
+                        <div className="Signup__modal-divide">
+                            <div className="Signup__modal-divide-bar"></div>
+                            <div className="Signup__modal-divide-content" style={{fontSize: "10px", color:"gray"}}>Hoặc</div>
+                            <div className="Signup__modal-divide-bar"></div>
+                        </div>
                         <br/>
-                        <input  type="submit" value="Đăng nhập"></input>
-                    </div>
-                    <div className="Signup__modal-tocheck">
-                        <a className="Signup__tocheck-Bx">
-                            <input type="checkbox" style={{border: "1px solid red"}}></input>
-                            <span>
-                                Tôi đồng ý với các điều khoản, điều kiện {"&"} chính sách của Netflix.
-                            </span>
-                        </a>
-                    </div>
-                    <br/>
-                    <div className="Signup__modal-divide">
-                        <div className="Signup__modal-divide-bar"></div>
-                        <div className="Signup__modal-divide-content" style={{fontSize: "10px", color:"gray"}}>Hoặc</div>
-                        <div className="Signup__modal-divide-bar"></div>
-                    </div>
-                    <div className="Signup__modal-account">
-                        <button className="Signup__modal-account-btn">
-                            <box-icon name='facebook-square' type='logo' animation='tada' color='#f4ecec' ></box-icon>
-                            <div className="Signup__modal-account-text">
-                                Facebook
-                            </div>
-                        </button>
-                        <button className="Signup__modal-account-btn">
-                            <box-icon name='google' type='logo' animation='tada' color='#f4ecec' ></box-icon>
-                            <div className="Signup__modal-account-text">
-                                Google
-                            </div>
-                        </button>
-                    </div>
-                    <br/>
-                    <p style={{color: "whitesmoke", fontSize:"12px", marginTop: "-1%"}}>Bạn đã có tài khoản? <a href="/login" style={{color:"red"}}>
-                            Đăng nhập
-                    </a> tại đây</p>
-
+                        <p style={{color: "whitesmoke", fontSize:"12px", marginTop: "-1%"}}>Bạn đã có tài khoản? <a href="/login">
+                                Đăng nhập
+                        </a> tại đây</p>
+                    </form>
                 </div>
             </div>
             <br/>
