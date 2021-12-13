@@ -22,6 +22,11 @@ function Header() {
         }
         setNoti(null);
     }
+    const handleSignout=()=>{
+        localStorage.removeItem('token');
+        localStorage.removeItem('noti');
+        setUser(null);
+    }
     const [user,setUser]=useState(null);
     const [noti,setNoti]=useState(null);
     const [movieList,setMovieList]=useState([])
@@ -135,7 +140,7 @@ function Header() {
                                             <li className="account__list-item">
                                             <FontAwesomeIcon icon="comment"></FontAwesomeIcon>
                                             Đóng góp ý kiến</li>
-                                            <li className="account__list-item">
+                                            <li onClick={handleSignout} className="account__list-item">
                                             <img className='signout' src={signout} alt="" />
                                             Đăng xuất</li>
                                         </ul>
