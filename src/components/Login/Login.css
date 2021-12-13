@@ -64,7 +64,7 @@
 }
 
 .Login__container .Login__modal .Login__modal-title{
-    margin-top: 5%;
+    margin-top: -7%;
     margin-bottom: 1%;
     font-size: 30px; 
 }
@@ -96,25 +96,33 @@
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 2px solid red;
+    border: none;
     font-size: 14px;
     letter-spacing: 1px;
     color: white;
-    background-color:red;
+    background-color: #CD0000;
     border-radius: 10px;
     margin-bottom: 3%;
     transition: background-color .3s ease;
 }
 
-.Login__modal .Login__modal-panel input[type="submit"]:hover{
-    background-color: red;
+.Login__modal .Login__modal-panel button:hover{
+    background-color: #EA0707;
     cursor: pointer;
 }
 
+.Login__modal .Login__modal-panel button:active{
+    cursor: pointer;
+    box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.4);
+}
 /*-----------------------Login Modal CheckBox and Forgot pass-----------------------------r*/
 .Login__modal .Login__modal-tocheck{
     display: flex;
     justify-content: space-evenly;
+}
+
+.Login__modal .Login__modal-tocheck .Login__tocheck-Bx span{
+    color: #8C8C8C;
 }
 
 .Login__modal .Login__modal-tocheck span{
@@ -147,7 +155,7 @@
     justify-content: center;
     width: 30%;
     height: 40px;
-    color: white;
+    color: #8C8C8C;
     margin: 2%;
     background-color: transparent;
     border: 1px solid red;
@@ -156,10 +164,25 @@
 }
 
 .Login__modal .Login__modal-account .Login__modal-account-btn:hover{
-    background-color: red;
+    color: white;
     cursor: pointer;
 }
 
+.Login__modal .Login__modal-account .Login__modal-account-btn:active{
+    background-color: #DDD7D7;
+    cursor: pointer;
+}
+/*-----------------------Login Modal Text Link---------------*/
+.Login__modal p a{
+    color: rgba(229, 9, 29, 0.75);
+}
+.Login__modal p a:hover{
+    color: #E50914;
+}
+
+.Login__modal p a:active{
+    color: white;
+}
 /*-----------------------Screen----------------------------r*/
 
 @media screen and (max-width: 768px) {
@@ -212,10 +235,10 @@
 @media screen and (min-width: 768px) {
     .Login__container .Login__modal{
         width: 32%;
-        height: 64%;
+        height: 67%;
     }
     .Login__container .Login__modal .Login__modal-title{
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .Login__container .Login__modal .Login__modal-content{
