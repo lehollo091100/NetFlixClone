@@ -22,7 +22,7 @@ function Header() {
         }
         setNoti(null);
     }
-    const [user,setUser]=useState("");
+    const [user,setUser]=useState(null);
     const [noti,setNoti]=useState(null);
     const [movieList,setMovieList]=useState([])
     useEffect(() => {
@@ -36,10 +36,6 @@ function Header() {
     }, [])
     useEffect(()=>{
         setUser(localStorage.getItem("token"))
-        if(user)
-        {
-            console.log(user);
-        }
     },[user])
     useEffect(()=>{
         if(localStorage.getItem('noti')=='yes')
@@ -91,6 +87,7 @@ function Header() {
                                 <FontAwesomeIcon className="icon" icon="search" onClick={handleSearch}></FontAwesomeIcon>
                                 <input type="text" placeholder='Tên phim, diễn viên, thể loại,...' />
                             </div>
+                            {user?
                             <div className="header__login">
                                 <div onClick={handleNotiDropdown} className="header__noti">
                                     <FontAwesomeIcon className="icon" icon="bell"></FontAwesomeIcon>
@@ -144,7 +141,8 @@ function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>:null
+                            }
                         </div>
                     </div>
                 </div>
