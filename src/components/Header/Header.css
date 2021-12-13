@@ -11,7 +11,11 @@
   position: fixed;
   width: 100vw;
   top: 0;
-  background-color: transparent;
+  background: linear-gradient(
+    180deg,
+    #111111 15.38%,
+    rgba(17, 17, 17, 0) 99.74%
+  );
   z-index: 2;
   transition: all 0.3s linear;
 }
@@ -87,7 +91,7 @@
   color: white;
   font-size: 14px;
   font-weight: 500;
-  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .header .header__wrapper .header__navigation .tab:hover {
@@ -101,14 +105,48 @@
   display: flex;
   align-items: center;
 }
-.header .header__wrapper .header__right .icon {
+.header .header__wrapper .header__right .header__search {
+  border: 1px white solid;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px 14px;
+}
+.header .header__wrapper .header__right .header__search.active {
+  margin-right: 0;
+  padding: 0;
+  border: none;
+}
+.header .header__wrapper .header__right .header__search .icon {
   color: white;
   font-size: 20px;
-  margin-right: 22px;
   cursor: pointer;
 }
-.header .header__wrapper .header__right .icon:last-child {
+.header .header__wrapper .header__right .header__search.active .icon {
+  margin-right: 10px;
+}
+.header .header__wrapper .header__right .header__search input {
+  width: 300px;
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
+  outline: none;
+  border: none;
+}
+.header .header__wrapper .header__right .header__search.active input {
+  display: none;
+}
+
+.header .header__wrapper .header__right .header__noti {
+  margin-right: 10px;
+}
+.header .header__wrapper .header__right .header__noti .icon {
   font-size: 25px;
+}
+
+.header__right .header__login {
+  display: flex;
+  align-items: center;
 }
 
 .header__wrapper .header__right .header__avatar {
@@ -131,7 +169,7 @@
   position: absolute;
   top: 54px;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(43, 41, 41, 0.8);
   padding: 10px 0 5px 0;
   font-size: 13px;
   opacity: 0;
@@ -141,14 +179,6 @@
 .header__wrapper .header__right .header__avatar:hover .account__wrap {
   opacity: 1;
   visibility: visible;
-}
-.header__wrapper .header__right .header__avatar .account__wrap a {
-  color: white;
-  font-weight: 700;
-  padding: 10px 10px;
-}
-.header__right .header__avatar .account__wrap a:hover span {
-  border-bottom: 1px solid white;
 }
 .header__wrapper
   .header__right
@@ -167,22 +197,32 @@
   transition: all 0.2s linear;
 }
 .header__right .header__avatar .account__list {
-  border-bottom: 1px #ffffff4f solid;
-  border-left: 1px #ffffff4f solid;
-  border-right: 1px #ffffff4f solid;
   display: flex;
   flex-direction: column;
 }
 .header__right .header__avatar .account__list .account__list-item {
   display: flex;
   line-height: 32px;
-  padding: 5px 10px;
-  font-size: 13px;
+  padding: 10px 10px;
+  font-size: 14px;
   align-items: center;
+  width: 290px;
+  border-top: 1px solid #8c8c8c;
+  border-bottom: 1px solid #8c8c8c;
 }
-.header__avatar .account__list .account__list-item span {
-  width: 100px;
-  line-height: 18px;
+
+.header__right .header__avatar .account__list .account__list-item:hover {
+  background-color: #585757;
+}
+.header__avatar .account__list .account__list-item svg {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.header__right .header__avatar .account__list .account__list-item .signout {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin: auto 10px auto 0;
 }
 .header__right .header__avatar .account__list img {
   width: 32px;
@@ -219,6 +259,19 @@
 
 .header .header__noti {
   position: relative;
+  cursor: pointer;
+}
+.header__noti .header__noti-num {
+  position: absolute;
+  top: -10%;
+  right: -20%;
+  background-color: var(--red1);
+  border-radius: 50px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header .header__noti .noti__list {
@@ -235,7 +288,7 @@
   overflow-y: scroll;
   transition: all 0.2s linear;
 }
-.header .header__noti:hover .noti__list {
+.header .header__noti.active .noti__list {
   opacity: 1;
   visibility: visible;
 }
@@ -259,7 +312,7 @@
 }
 .noti__list .noti__list-item .noti__detail .noti__detail-title {
   font-size: 16px;
-  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.2;
 }
 .noti__list-item .noti__detail .noti__detail-date {

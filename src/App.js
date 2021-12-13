@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faGlobe,faSearch,faBell,faInfoCircle,faCaretRight,faUndoAlt,faChevronRight,faVolumeUp,faVolumeOff,faVolumeMute,faPlay,faPlus,faThumbsUp,faThumbsDown,faChevronDown,faCaretDown, faAlignLeft, faThLarge } from '@fortawesome/free-solid-svg-icons'
+import {faListAlt, faComment , faQuestionCircle ,faCog,faGlobe,faSearch,faBell,faInfoCircle,faCaretRight,faUndoAlt,faChevronRight,faVolumeUp,faVolumeOff,faVolumeMute,faPlay,faPlus,faThumbsUp,faThumbsDown,faChevronDown,faCaretDown, faAlignLeft, faThLarge, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
@@ -56,4 +56,4 @@ function App() {
 }
 
 export default App;
-library.add(faGlobe,fab,faSearch,faBell,faInfoCircle,faCaretRight,faUndoAlt,faChevronRight,faVolumeUp,faVolumeOff,faVolumeMute,faPlay,faPlus,faThumbsUp,faThumbsDown,faChevronDown,faCaretDown,faAlignLeft,faThLarge)
+library.add(faListAlt,faComment,faQuestionCircle,faCog,faGlobe,fab,faSearch,faBell,faInfoCircle,faCaretRight,faUndoAlt,faChevronRight,faVolumeUp,faVolumeOff,faVolumeMute,faPlay,faPlus,faThumbsUp,faThumbsDown,faChevronDown,faCaretDown,faAlignLeft,faThLarge)

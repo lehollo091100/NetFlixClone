@@ -1,6 +1,8 @@
 :root {
-  --red: #e50914;
+  --red: #cd0000;
+  --red1: #ea0707;
   --grey: #80808057;
+  --boxshadow1: inset 4px 4px 3px rgba(0, 0, 0, 0.5);
 }
 a {
   text-decoration: none;

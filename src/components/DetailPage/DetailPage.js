@@ -60,12 +60,12 @@ function DetailPage() {
                         <div className="detail__introduce-info">
                             Quốc gia: Mỹ
                         </div>
-                        <div className="detail__introduce-button">\
-                        <a href="/phim/detail/watch">
-                            <span >
-                                <FontAwesomeIcon icon="play"></FontAwesomeIcon>
-                                Xem ngay
-                            </span>
+                        <div className="detail__introduce-button">
+                            <a href="/phim/detail/watch">
+                                <span >
+                                    <FontAwesomeIcon icon="play"></FontAwesomeIcon>
+                                    Xem ngay
+                                </span>
                             </a>
                             <span>
                                 <FontAwesomeIcon icon="plus"></FontAwesomeIcon>

@@ -32,24 +32,26 @@
 .detail .detail__introduce-wrapper {
   display: flex;
   position: absolute;
-  left: 5%;
+  left: 50%;
   bottom: 10%;
+  transform: translate(-50%);
   z-index: 1;
   padding: 30px;
   background-color: #8080808f;
 }
 
 .detail .detail__introduce-left {
-  width: 350px;
-  height: 450px;
+  width: 300px;
+  height: 400px;
 }
 .detail .detail__introduce-left img {
-  width: 100%;
+  width: 300px;
   height: 100%;
   object-fit: cover;
 }
 
 .detail .detail__introduce-right {
+  width: 560px;
   display: flex;
   flex-direction: column;
   margin-left: 10px;

@@ -114,6 +114,9 @@
   border-radius: 3px;
 }
 
+.intro__navbar-right .intro__login:hover {
+  background-color: var(--red1);
+}
 .intro__middle {
   text-align: center;
   width: 70vw;
@@ -134,12 +137,18 @@
   display: inline-block;
   padding: 29px 72px;
   font-size: 26px;
-  background-color: #fc0c0c;
+  background-color: #c80f0f;
   cursor: pointer;
 }
 .start__button svg {
   transform: translateX(50%);
   transition: all 0.2s linear;
+}
+.start__button:hover {
+  background-color: #ea0707;
+}
+.start__button:active {
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.4);
 }
 .start__button:hover svg {
   transform: translateX(120%);

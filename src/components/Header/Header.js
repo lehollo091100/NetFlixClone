@@ -4,12 +4,26 @@ import './Header.css'
 // import logo from '../../image/netflixlogo.jpg'
 import logo from '../../image/Logo.png'
 import avatar from '../../image/avatar.png'
+import signout from '../../image/Vector.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
 function Header() {
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
     }
+    const handleSearch=()=>{
+        document.querySelector('.header__search').classList.toggle('active');
+    }
+    const handleNotiDropdown=()=>{
+        document.querySelector('.header__noti').classList.toggle('active');
+        if(localStorage.getItem("noti")=="yes")
+        {
+            localStorage.removeItem("noti");
+        }
+        setNoti(null);
+    }
+    const [user,setUser]=useState("");
+    const [noti,setNoti]=useState(null);
     const [movieList,setMovieList]=useState([])
     useEffect(() => {
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=070460ee0b557df99bd8fd941d183e23')
@@ -20,7 +34,22 @@ function Header() {
             console.log(error)
         })
     }, [])
-
+    useEffect(()=>{
+        setUser(localStorage.getItem("token"))
+        if(user)
+        {
+            console.log(user);
+        }
+    },[user])
+    useEffect(()=>{
+        if(localStorage.getItem('noti')=='yes')
+        {
+            setNoti(localStorage.getItem('noti'))
+        }
+        else{
+            setNoti(null);
+        }
+    },[localStorage.getItem('noti')])
     return (
         <div className="header">
             <div className="header__container">
@@ -58,47 +87,62 @@ function Header() {
                             </li>
                         </ul>
                         <div className="header__right">
-                            <FontAwesomeIcon className="icon" icon="search"></FontAwesomeIcon>
-                            <div className="header__noti">
-                                <FontAwesomeIcon className="icon" icon="bell"></FontAwesomeIcon>
-                                <ul className="noti__list">
-                                    {movieList && movieList.map(movie=>(
-                                        <li className="noti__list-item">
-                                            <img src={'https://image.tmdb.org/t/p/original'.concat(movie.backdrop_path)} alt="" className="noti__image" />
-                                            <div className="noti__detail">
-                                                <div className="noti__detail-title">
-                                                    {movie.original_title}
-                                                </div>
-                                                <span className="noti__detail-date">
-                                                    {movie.release_date}
-                                                </span>
-                                            </div>
-                                        </li>
-                                    ))}
-                                    
-                                </ul>
+                            <div className='header__search'>
+                                <FontAwesomeIcon className="icon" icon="search" onClick={handleSearch}></FontAwesomeIcon>
+                                <input type="text" placeholder='Tên phim, diễn viên, thể loại,...' />
                             </div>
-                            <div className="header__avatar">
-                                <img src={avatar} alt="" />
-                                <span className="header__avatar-arrow"></span>
-                                <div className="account__wrap">
-                                    <span className="header__avatar-arrow-up"></span>
-                                    <ul className="account__list">
-                                        <li className="account__list-item">
-                                            <img src={avatar} className="account__item-image" alt="" />
-                                            <span className="account__item-name">Thien</span>
-                                        </li>
-                                        <li className="account__list-item">Quản lí hồ sơ</li>
+                            <div className="header__login">
+                                <div onClick={handleNotiDropdown} className="header__noti">
+                                    <FontAwesomeIcon className="icon" icon="bell"></FontAwesomeIcon>
+                                    {noti?
+                                        <div className="header__noti-num">
+                                        4
+                                        </div>:null
+                                    }
+                                    <ul className="noti__list">
+                                        {movieList && movieList.map(movie=>(
+                                            <li className="noti__list-item">
+                                                <img src={'https://image.tmdb.org/t/p/original'.concat(movie.backdrop_path)} alt="" className="noti__image" />
+                                                <div className="noti__detail">
+                                                    <div className="noti__detail-title">
+                                                        {movie.original_title}
+                                                    </div>
+                                                    <span className="noti__detail-date">
+                                                        {movie.release_date}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        ))}
+                                        
                                     </ul>
-                                    <ul className="account__list">
-                                        <a href=""><span>Tài khoản</span></a>
-                                        <a href="">
-                                            <span>
-                                                Trung tâm trợ giúp
-                                            </span>
-                                        </a>
-                                        <a href=""><span>Đăng xuất khỏi Netflix</span></a>
-                                    </ul>
+                                </div>
+                                <div className="header__avatar">
+                                    <img src={avatar} alt="" />
+                                    <span className="header__avatar-arrow"></span>
+                                    <div className="account__wrap">
+                                        <span className="header__avatar-arrow-up"></span>
+                                        <ul className="account__list">
+                                            <li className="account__list-item">
+                                                <img src={avatar} className="account__item-image" alt="" />
+                                                <span className="account__item-name">Thien</span>
+                                            </li>
+                                            <li className="account__list-item">
+                                            <FontAwesomeIcon icon="list-alt"></FontAwesomeIcon>
+                                            Phim của tôi </li>
+                                            <li className="account__list-item">
+                                            <FontAwesomeIcon icon="cog"></FontAwesomeIcon>
+                                            Cài đặt</li>
+                                            <li className="account__list-item">
+                                            <FontAwesomeIcon icon="question-circle"></FontAwesomeIcon>
+                                            Trợ giúp & Hỗ trợ</li>
+                                            <li className="account__list-item">
+                                            <FontAwesomeIcon icon="comment"></FontAwesomeIcon>
+                                            Đóng góp ý kiến</li>
+                                            <li className="account__list-item">
+                                            <img className='signout' src={signout} alt="" />
+                                            Đăng xuất</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

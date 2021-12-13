@@ -51,26 +51,19 @@ function Home() {
                     <div className="home__start">
                         <img className="home__start-bg" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
                         <div className="home__start-wrapper">
-                            <img className="home__start-background" src="https://occ-0-325-395.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABc5MwMGTLgLIUHz4GoejmJxHbbebq628L2xETbeouq62894K4b2RewxTb2-2T2zN3u7CYHHss7rDZX40gEGY3QebyVFnybJJBpqq.webp?r=047" alt="" />
                             <div className="home__start-info">
-                                Vòng xoáy dữ dội của những lời dối trá, sự phản bội và lòng thù hận xé tan cuộc hôn nhân tưởng chừng như hoàn hảo giữa một vị bác sĩ và một nhà làm phim.
+                                {movie?(movie.title):'Venom'}
                             </div>
                             <div className="home__start-button">
                                 <span className="play__button">
                                     <FontAwesomeIcon className="play__arrow" icon="caret-right"></FontAwesomeIcon>
-                                    <span>Phát</span>
+                                    <span>Xem ngay</span>
                                 </span>
                                 <span className="info__button">
                                     <FontAwesomeIcon className="info__icon" icon="info-circle"></FontAwesomeIcon>
                                     <span>Thông tin khác</span>
                                 </span>
                             </div>
-                        </div>
-                        <div className="home__start-right">
-                            <span className="replay__button">
-                                <FontAwesomeIcon className="undo__icon" icon="undo-alt"></FontAwesomeIcon>
-                            </span>
-                            <span className="home__start-age">16+</span>
                         </div>
                     </div>
                 )

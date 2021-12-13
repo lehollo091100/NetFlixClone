@@ -26,6 +26,9 @@ function Intro() {
         }
         getToken();
     },[])
+    useEffect(()=>{
+        localStorage.setItem("noti","yes");
+    },[])
     return (
         <div className="intro">
             <div className="intro__begin">
