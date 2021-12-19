@@ -6,8 +6,9 @@ import logo from '../../image/Logo.png'
 import avatar from '../../image/avatar.png'
 import signout from '../../image/Vector.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 function Header() {
+    let history = useHistory();
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
     }
@@ -25,6 +26,7 @@ function Header() {
     const handleSignout=()=>{
         localStorage.removeItem('token');
         localStorage.removeItem('noti');
+        history.push("/");
         setUser(null);
     }
     const [user,setUser]=useState(null);

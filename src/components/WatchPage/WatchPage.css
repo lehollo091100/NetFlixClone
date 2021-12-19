@@ -29,7 +29,7 @@
 }
 .watchpage .watchpage__button{
     display: flex;
-    justify-content: left;
+    justify-content: right;
     text-align: center;
 }
 

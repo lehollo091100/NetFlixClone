@@ -14,6 +14,7 @@ import Signup from './components/Login/Signup';
 import Intro from './components/Intro/Intro';
 import DetailPage from './components/DetailPage/DetailPage';
 import WatchPage from './components/WatchPage/WatchPage';
+import User from './components/DetailUser/User'
 function App() {
   return (
     <Router>
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <Signup/>
+          </Route>
+          <Route path="/user">
+            <User/>
           </Route>
           <Route path="/">
             <Intro/>
