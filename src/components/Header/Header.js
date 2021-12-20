@@ -212,7 +212,10 @@ function Header() {
                                             </li>
                                             <li className="account__list-item">
                                             <FontAwesomeIcon icon="list-alt"></FontAwesomeIcon>
-                                            Phim của tôi </li>
+                                            <a href="/phim?loai=Phim của tôi">
+                                            Phim của tôi
+                                            </a>
+                                             </li>
                                             <li className="account__list-item">
                                             <FontAwesomeIcon icon="cog"></FontAwesomeIcon>
                                             Cài đặt</li>
