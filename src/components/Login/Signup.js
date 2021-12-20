@@ -7,11 +7,16 @@ import Footer from '../Footer/Footer';
 import { Link, useHistory } from 'react-router-dom';
 import Confirm from './Confirm';
 import ConfirmError from './ConfirmError';
+import isEmpty from 'validator/lib/isEmpty'
 function Signup(){
     let history = useHistory(); 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [repass, setRepass] = useState('')
     const [success, setSuccess]= useState(false);
     const [showModal, setShow] = useState(false);
     const [showModalError, setShowE] = useState(false);
+    const [validateMsg, setValidate] = useState('');
     function Close(){
         history.push("/");
     }
@@ -34,18 +39,57 @@ function Signup(){
                 x[i].style.filter = "brightness(100%)"
             }
         }
-    })
-    const LoginHandler = e =>{
-        e.preventDefault();
-        let username = document.getElementById("mail").value;
-        let password = document.getElementById("password").value;
-        let repass = document.getElementById("repass").value;
+    })  
+
+    const onChangeEmail = (event) =>{
+        const value = event.target.value
+        setEmail(value)
+    }
+    const onChangePassword = (event) =>{
+        const value = event.target.value
+        setPassword(value)
+    }
+    const onChangeRepass = (event) =>{
+        const value = event.target.value
+        setRepass(value)
+    }
+    const validateAll = () =>{
+        const msg = {}
+        console.log(email)
+        if(isEmpty(email)){
+            msg.email = "Vui lòng nhập email và số điện thoại hợp lệ"
+        }
+
+        if(isEmpty(password) || password.length < 4)
+        {
+            msg.password = "Mật khẩu phải chứa từ 4 - 60 ký tự"
+        }
         
-        if(username === "tinpham1510@gmail.com" && password === "123456" && repass === "123456")
+        if(isEmpty(repass) || password != repass)
+        {
+            msg.repass = "Mật khẩu không trùng khớp, vui lòng nhập lại"
+        }
+
+
+
+        setValidate(msg)
+        if(Object.keys(msg).length < 4) 
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+    const LoginHandler = e =>{
+        e.preventDefault()
+        validateAll()
+
+        if(email === "tinpham1510@gmail.com" && password === "123456" && repass === "123456")
         {
             
             setSuccess(true);  
-           
             localStorage.setItem("token" ,"12345678");
         }
 
@@ -82,17 +126,21 @@ function Signup(){
                         <div className="Signup__modal-panel">
                             <br/>
                             <a>
-                                <input type="email" placeholder="Email hoặc số điện thoại" id='mail'></input>
+                                <input onChange={onChangeEmail} type="email" placeholder="Email hoặc số điện thoại" id='mail'></input>
+                                
                             </a>
+                            <p className="feedback" style={{height: "12px", fontSize: "11px", justifyContent:"left",marginLeft: "90px", overflow:"hidden", fontWeight: "bold" , color: "red", fontStyle:"italic", marginTop: "-1%", display:"flex"}}>{validateMsg.email}</p>
                             <a>
-                                <input  type="password" placeholder="Mật khẩu" id='password' ></input>
+                                <input onChange={onChangePassword} type="password" placeholder="Mật khẩu" id='password' ></input>
                             </a>
+                            <p className="feedback" style={{height: "12px", fontSize: "11px", justifyContent:"left",marginLeft: "90px", overflow:"hidden", fontWeight: "bold" , color: "red", fontStyle:"italic", marginTop: "-1%", display:"flex"}}>{validateMsg.password}</p>
                             <a>
-                                <input  type="password" placeholder="Nhập lại mật khẩu" id='repass'></input>
+                                <input onChange={onChangeRepass} type="password" placeholder="Nhập lại mật khẩu" id='repass'></input>
+                                
                             </a>
+                            <p className="feedback" style={{height: "12px", fontSize: "11px", justifyContent:"left",marginLeft: "90px", overflow:"hidden", fontWeight: "bold" , color: "red", fontStyle:"italic", marginTop: "-1%", display:"flex"}}>{validateMsg.repass}</p>
                         </div>
                         <div className="Signup__modal-panel">
-                            <br/>
                             <button onClick={LoginHandler}>Đăng ký</button>
                         </div>
                         <div className="Signup__modal-tocheck">

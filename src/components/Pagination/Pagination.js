@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios'
 import './Pagination.css'
-const Pagination = ({num, setNum}) => {
+const Pagination = ({movieList ,num, setNum}) => {
+    const baseUrl='https://image.tmdb.org/t/p/original';
     const [prev, setPrev] = useState(false)
     const [pageNumber, setPage] = useState(0)
     const moviePage = 5
@@ -11,6 +12,8 @@ const Pagination = ({num, setNum}) => {
     const pageCount = Math.ceil(num / moviePage)
     var count = 0
     useEffect(()=>{
+        console.log(pageVisited)
+        console.log(pageNumber)
         if(pageNumber >=1)
         {
             if(prev == false)
@@ -25,9 +28,9 @@ const Pagination = ({num, setNum}) => {
     })
     const changePage = ({selected}) =>{
         setPage(selected);
-        console.log(selected)
     }
     return (
+        <>
         <div className="pagination">
             <div className="pagination__top">
                 {
@@ -62,6 +65,8 @@ const Pagination = ({num, setNum}) => {
                 <button >Di chuyển</button>
             </div>
         </div>
+        </>
+        
     );
 }
 

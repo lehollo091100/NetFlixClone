@@ -75,7 +75,7 @@
 }
 .Login__modal .Login__modal-panel input{
     width: 60%;
-    padding: 10px 20px;
+    padding: 10px 27px;
     outline: none;
     font-weight: 400;
     border: 2px solid red;
@@ -85,15 +85,47 @@
     background: transparent;
     border-radius: 10px;
     margin-bottom: 3%;
+    font-size: 16px;
 }
+
+.Login__modal .Login__modal-panel a i{
+    font-size: 19px;
+ }
+
+.Login__modal .Login__modal-panel a .fa-user{
+   transform: translateX(100%);
+   display: flex;
+   top: 32%;
+   left: 13%;
+   position: absolute;
+   color: red;
+}
+
+.Login__modal .Login__modal-panel a .fa-lock{
+    transform: translateX(100%);
+    display: flex;
+    top: 45.5%;
+    left: 13%;
+    position: absolute;
+    color: red;
+ }
+
+ .Login__modal .Login__modal-panel a .fa-eye{
+    transform: translateX(100%);
+    display: flex;
+    top: 45.5%;
+    left: 75%;
+    position: absolute;
+    color: red;
+ }
 
 .Login__modal .Login__modal-panel input:focus{
     border: 2px solid red;
 }
 
 .Login__modal .Login__modal-panel button{
-    width: 70%;
-    padding: 10px 20px;
+    width: 72%;
+    padding: 10px 27px;
     outline: none;
     font-weight: 400;
     border: none;

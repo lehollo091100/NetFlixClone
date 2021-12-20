@@ -116,6 +116,17 @@
     cursor: pointer;
     box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.4);
 }
+.Signup__modal .Signup__modal-panel a i{
+    font-size: 19px;
+ }
+
+.Signup__modal .Signup__modal-panel a .fa-eye{
+    transform: translateX(100%);
+    top: 43%;
+    left: 74%;
+    position: absolute;
+    color: red;
+}
 
 
 /*-----------------------Signup Modal CheckBox and Forgot pass-----------------------------r*/
@@ -230,7 +241,7 @@
 @media screen and (min-width: 900px) {
     .Signup__container .Signup__modal{
         width: 32%;
-        height: 66%;
+        height: 68%;
         margin-top: 1%;
     }
     .Signup__container .Signup__modal .Signup__modal-title{

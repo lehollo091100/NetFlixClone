@@ -11,13 +11,15 @@ import User from '../DetailUser/User';
 import Confirm from './Confirm';
 import ConfirmError from './ConfirmError';
 import Loading from '../Loading/Loading';
-
+import isEmpty from 'validator/lib/isEmpty'
 function Login(){
     let history = useHistory();
-   
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [showModal, setShow] = useState(false);
     const [showModalError, setShowE] = useState(false);
     const [success, setSuccess]= useState(false);
+    const [validateMsg, setValidate] = useState('');
     function Close(){
         history.push("/");
     }
@@ -52,11 +54,43 @@ function Login(){
             }
         }
     })
+    const onChangeEmail = (event) =>{
+        const value = event.target.value
+        setEmail(value)
+    }
+    const onChangePassword = (event) =>{
+        const value = event.target.value
+        setPassword(value)
+    }
+
+    const validateAll = () =>{
+        const msg = {}
+        const mail = email.search("@gmail.com");
+        const CorrectEmail = email.slice(0,mail);
+        console.log(mail)
+        if(isEmpty(email) || mail < 0){
+            msg.email = "Vui lòng nhập email và số điện thoại hợp lệ"
+        }
+
+        if(isEmpty(password) || password.length < 4)
+        {
+            msg.password = "Mật khẩu phải chứa từ 4 - 60 ký tự"
+        }
+
+        setValidate(msg)
+        if(Object.keys(msg).length < 4) 
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
     const LoginHandler = e =>{
         e.preventDefault();
-        let username = document.getElementById("text").value;
-        let password = document.getElementById("password").value;
-        if(username === "tinpham1510" && password === "12345678")
+        validateAll()
+        if(email === "tinpham1510@gmail.com" && password === "12345678")
         {
             
             setSuccess(true);  
@@ -100,14 +134,18 @@ function Login(){
                         <div className="Login__modal-panel">
                             <br/>
                             <a>
-                                <input  type="email" placeholder="Email hoặc số điện thoại" id="text"></input>
+                                <i class="far fa-user"></i>
+                                <input onChange={onChangeEmail}  type="email" placeholder="  Email hoặc số điện thoại" id="text"></input>
                             </a>
+                            <p className="feedback" style={{height: "12px", fontSize: "11px", justifyContent:"left",marginLeft: "90px", overflow:"hidden", fontWeight: "bold" , color: "red", fontStyle:"italic", marginTop: "-1%", display:"flex"}}>{validateMsg.email}</p>
                             <a>
-                                <input  type="password" placeholder="Mật khẩu" id="password" ></input>
+                                <i class="fas fa-lock"></i>
+                                <input onChange={onChangePassword} type="password" placeholder="  Mật khẩu" id="password" ></input>
+                                <i class="far fa-eye"></i>
                             </a>
+                            <p className="feedback" style={{height: "12px", fontSize: "11px", justifyContent:"left",marginLeft: "90px", overflow:"hidden", fontWeight: "bold" , color: "red", fontStyle:"italic", marginTop: "-1%", display:"flex"}}>{validateMsg.password}</p>
                         </div>
                         <div className="Login__modal-panel">
-                            <br/>
                             <button onClick={LoginHandler}> Đăng nhập</button>
                         </div>
                     </form>

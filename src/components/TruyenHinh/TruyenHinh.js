@@ -25,7 +25,7 @@ function TruyenHinh({cate}) {
     useEffect(() => {
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=070460ee0b557df99bd8fd941d183e23')
         .then(function(response){
-            setMovieList(response.data.results.slice(0,6));
+            setMovieList(response.data.results.slice(0,20));
             var sum = response.data.results.map(
                 (item, index) => setNum(index + 1)
             )
@@ -250,7 +250,7 @@ function TruyenHinh({cate}) {
 
             </div>
             <br/>
-            <Pagination num={num} setNum={setNum}/>
+            <Pagination movieList={movieList} num={num} setNum={setNum}/>
             <Footer></Footer>
         </div>
 }
