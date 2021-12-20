@@ -35,7 +35,9 @@ function Header() {
         history.push("/");
         setUser(null);
     }
-
+    const handleTheloai=()=>{
+        document.querySelector('.category__wrapper').classList.toggle('active')
+    }
     const handleUsser=()=>{
        history.push("/user");
     }

@@ -69,6 +69,27 @@ function TruyenHinh({cate}) {
         setValue5(null);
         
     }
+
+    const Dropdownfunc=(e)=>{
+        console.log(e.target.id);
+        if(document.getElementById(e.target.id+'dropdown'))
+        {
+            document.getElementById(e.target.id+'dropdown').classList.toggle("show");
+        }
+    } 
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.category__button')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
     const [loading, setLoading] = useState(false);
     useEffect(()=>{
         function Load()
