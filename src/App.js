@@ -31,17 +31,8 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/truyenhinh">
-            <TruyenHinh cate="Phim T.hình"></TruyenHinh>
-          </Route>
           <Route path="/phim">
-            <TruyenHinh cate="Phim"></TruyenHinh>
-          </Route>
-          <Route path="/moivaphobien">
-            <TruyenHinh cate="Mới & phổ biến"></TruyenHinh>
-          </Route>
-          <Route path="/mylist">
-            <TruyenHinh cate="Danh sách của tôi"></TruyenHinh>
+            <TruyenHinh cate="Phim lẻ"></TruyenHinh>
           </Route>
           <Route path="/login">
             <Login/>
