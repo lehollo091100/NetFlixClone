@@ -6,8 +6,14 @@ import logo from '../../image/Logo.png'
 import avatar from '../../image/avatar.png'
 import signout from '../../image/Vector.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory,useLocation } from 'react-router-dom';
+
+function useQuery() {
+    const { search } = useLocation();
+    return React.useMemo(() => new URLSearchParams(search), [search]);
+}
 function Header() {
+    let query=useQuery();
     let history = useHistory();
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
@@ -28,6 +34,9 @@ function Header() {
         localStorage.removeItem('noti');
         history.push("/");
         setUser(null);
+    }
+    const handleTheloai=()=>{
+        document.querySelector('.category__wrapper').classList.toggle('active')
     }
     const [user,setUser]=useState(null);
     const [noti,setNoti]=useState(null);
@@ -53,6 +62,7 @@ function Header() {
             setNoti(null);
         }
     },[localStorage.getItem('noti')])
+
     return (
         <div className="header">
             <div className="header__container">
@@ -69,24 +79,91 @@ function Header() {
                                 </div>
                                 <ul className="menu__mobile">
                                     <span className="header__avatar-arrow-up"></span>
-                                    <li className="menu__mobile-tab"><a href="" >Trang chủ</a></li>
-                                    <li className="menu__mobile-tab"><a href="/truyenhinh">Phim T.hình</a></li>
-                                    <li className="menu__mobile-tab"><a href="/phim">Phim</a></li>
-                                    <li className="menu__mobile-tab"><a href="/moivaphobien">Mới & Phổ biến</a></li>
-                                    <li className="menu__mobile-tab"><a href="/mylist">Danh sách của tôi</a></li>
+                                    <li className="menu__mobile-tab"><a href="/home" >Trang chủ</a></li>
+                                    <li className="menu__mobile-tab"><a href="/phimle">Phim lẻ</a></li>
+                                    <li className="menu__mobile-tab"><a href="/phimbo">Phim bộ</a></li>
+                                    <li className="menu__mobile-tab"><a href="/theloai">Thể loại</a></li>
+                                    <li className="menu__mobile-tab"><a href="/quocgia">Quốc gia</a></li>
                                 </ul>
                             </li>
                             <li className="header__navigation-tab">
-                                <a to="/home" className="tab">Trang chủ</a>
+                                <a href="/home" className="tab">Trang chủ</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/phim" className="tab" >Phim</a>
+                                <a href="/phim?loai=Phim lẻ" className="tab" >Phim lẻ</a>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/moivaphobien" className="tab" >Mới & Phổ biến</a>
+                                <a href="/phim?loai=Phim bộ" className="tab" >Phim bộ</a>
+                            </li>
+                            <li className="header__navigation-tab" onMouseOver={handleTheloai} onMouseOut={handleTheloai}>
+                                <a className="tab" >Thể loại</a>
+                                <div className="category__wrapper">
+                                    <ul className="category__list">
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Hành động">
+                                                Hành động
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Tình cảm">
+                                                Tình cảm
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Hài hước">
+                                                Hài hước
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Tâm lý">Tâm lý</a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Hình sự">
+                                                Hình sự 
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Thể thao">
+                                                Thể thao
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul className="category__list">
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Ma Kinh Dị">
+                                                Phim Ma Kinh Dị
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Khoa Học">
+                                                Phim Khoa Học
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Phiêu Lưu">
+                                                Phim Phiêu Lưu
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Viễn Tưởng">
+                                                Phim Viễn Tưởng
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Hoạt Hình">
+                                                Phim Hoạt Hình
+                                            </a>
+                                        </li>
+                                        <li className="category__list-item">
+                                            <a href="/phim?loai=Phim Võ Thuật">
+                                                Phim Võ Thuật
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li className="header__navigation-tab">
-                                <a href="/mylist" className="tab">Danh sách của tôi</a>
+                                <a className="tab">Quốc gia</a>
                             </li>
                         </ul>
                         <div className="header__right">

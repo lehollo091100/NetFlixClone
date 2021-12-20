@@ -4,6 +4,25 @@
   --grey: #80808057;
   --boxshadow1: inset 4px 4px 3px rgba(0, 0, 0, 0.5);
 }
+
+element.style {
+}
+.cate__header-left h1 {
+  /* margin-right: 30px; */
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 700;
+}
+* {
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1 {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
 a {
   text-decoration: none;
   color: unset;

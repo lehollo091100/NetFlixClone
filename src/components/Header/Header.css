@@ -97,6 +97,54 @@
 .header .header__wrapper .header__navigation .tab:hover {
   opacity: 0.8;
 }
+
+.header__navigation-tab {
+  position: relative;
+}
+.header__navigation-tab .category__wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px rgba(255, 255, 255, 0.123) solid;
+  display: flex;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+}
+.header__navigation-tab .category__wrapper.active {
+  opacity: 1;
+  visibility: visible;
+}
+.header__navigation-tab .category__wrapper .category__list {
+  /* padding: 10px 5px; */
+}
+
+.header__navigation-tab
+  .category__wrapper
+  .category__list
+  .category__list-item {
+  line-height: 24px;
+  font-size: 14px;
+  box-sizing: border-box;
+  width: auto;
+  padding: 1px 20px 1px 10px;
+  font-weight: 500;
+  display: block;
+}
+.header__navigation-tab
+  .category__wrapper
+  .category__list
+  .category__list-item:hover {
+  background-color: #585757;
+}
+.category__list .category__list-item a {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 10px 5px;
+}
+
 .header .header__wrapper .header__right {
   position: absolute;
   top: 0;
