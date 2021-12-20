@@ -13,6 +13,7 @@ import {
     useHistory
   } from "react-router-dom";
 import { Dropdown,DropdownButton } from "react-bootstrap"
+import Pagination from '../Pagination/Pagination'
 function useQuery() {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
@@ -20,10 +21,14 @@ function useQuery() {
 function TruyenHinh({cate}) {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
+    const [num, setNum] = useState(0);
     useEffect(() => {
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=070460ee0b557df99bd8fd941d183e23')
         .then(function(response){
             setMovieList(response.data.results.slice(0,6));
+            var sum = response.data.results.map(
+                (item, index) => setNum(index + 1)
+            )
         })
         .catch(function(error){
             console.log(error)
@@ -214,6 +219,8 @@ function TruyenHinh({cate}) {
                             Danh sách phim đã được lọc
                         </span>
                 </span>
+               
+                <br/>
                 <div className="cate__slider">
                         {
                         movieList&&movieList.map(movie=>(
@@ -242,6 +249,8 @@ function TruyenHinh({cate}) {
                 </div>
 
             </div>
+            <br/>
+            <Pagination num={num} setNum={setNum}/>
             <Footer></Footer>
         </div>
 }
