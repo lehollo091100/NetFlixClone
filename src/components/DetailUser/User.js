@@ -25,13 +25,9 @@ function User(){
                     Phạm Trung
                 </div>
                 <br/>
-                <div className="User__point">
-                    0 FPOINTS {"|"} HẠNG ĐỒNG
-                </div>
-                <br/>
                 <div className="User__logs">
                     <div className="User__logs_card">
-                        <div className="User__logs_card-field">
+                        <div className="User__logs_card-field" style={{marginLeft: "26%"}}>
                             <img src={img2}/>
                             <div className="text">
                                 <div style={{color: "grey"}}>
@@ -44,7 +40,7 @@ function User(){
                     </div>
 
                     <div className="User__logs_card">
-                        <div className="User__logs_card-field">
+                        <div className="User__logs_card-field" style={{marginLeft: "2%"}} >
                             <img src={img3}></img>
                             <div className="text">
                             <div style={{color: "grey"}}>
@@ -57,7 +53,7 @@ function User(){
                     </div>
 
                     <div className="User__logs_card">
-                        <div className="User__logs_card-field">
+                        <div className="User__logs_card-field" style={{marginLeft: "26%"}}>
                             <img src={img4}></img>
                             <div className="text">
                             <div style={{color: "grey"}}>
@@ -69,7 +65,7 @@ function User(){
                         </div>
                     </div>
                     <div className="User__logs_card">
-                        <div className="User__logs_card-field">
+                        <div className="User__logs_card-field" style={{marginLeft: "2%"}}>
                             <img src={img5}></img>
                             <div className="text">
                             <div style={{color: "grey"}}>
@@ -81,7 +77,7 @@ function User(){
                         </div>
                     </div>
                     <div className="User__logs_card">
-                        <div className="User__logs_card-field">
+                        <div className="User__logs_card-field" style={{marginLeft: "26%"}}>
                             <img src={img6}></img>
                             <div className="text">
                             <div style={{color: "grey"}}>

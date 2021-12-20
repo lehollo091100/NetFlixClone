@@ -109,7 +109,7 @@
 
 .intro__navbar-right .intro__login {
   background: var(--red);
-  padding: 7px 17px;
+  padding: 15px 30px;
   cursor: pointer;
   border-radius: 3px;
 }

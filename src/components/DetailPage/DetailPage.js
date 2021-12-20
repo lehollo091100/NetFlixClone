@@ -8,6 +8,10 @@ import avater from '../../image/Avatar (1).png'
 import Footer from './../Footer/Footer';
 import { Link, Route, Router, Switch, useHistory } from 'react-router-dom';
 import WatchPage from '../WatchPage/WatchPage';
+import Loading from '../Loading/Loading';
+import { render } from 'react-dom';
+import Toast from '../ToastMessage/Toast';
+import ToastDelete from '../ToastMessage/ToastDelete';
 function DetailPage() {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
@@ -20,11 +24,51 @@ function DetailPage() {
             console.log(error)
         })
     }, [])
+    const [loading, setLoading] = useState(false);
+    useEffect(()=>{
+        function Load()
+        {
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+            },500)
+        }
+        Load()
+    },[])
+    const [showToast, setToast] = useState(false);
+    const [showToastError, setToastE] = useState(false);
+    const [check, setCheck] = useState(false);
+    let count = 0;
+    const HandleClick = e =>{
+        e.preventDefault();
+        if(showToast== false && count == 0)
+        {
+            setToast(true)
+            count++;
+            setToastE(false)
+        }
+        else
+        {
+            setToast(false)
+            setToastE(true)
+        }
+
+        if(check == false)
+        {
+            setCheck(true);
+        }
+        else{
+            setCheck(false);
+        }
+    }
     return (
         <>
+        { loading? <Loading/>:
         <div className="detail">
             <Header cate="home"></Header>
             <div className="detail__introduce">
+            <Toast showToast={showToast} setToast={setToast} />
+            <ToastDelete showToast={showToastError} setToast={setToastE} />
                 <img src={movieList? baseUrl.concat(movieList.poster_path):''} className="detail__introduce-background" alt="" />
                 <div className="detail__introduce-wrapper">
                     <div className="detail__introduce-left">
@@ -60,6 +104,7 @@ function DetailPage() {
                         <div className="detail__introduce-info">
                             Quốc gia: Mỹ
                         </div>
+                        
                         <div className="detail__introduce-button">
                             <a href="/phim/detail/watch">
                                 <span >
@@ -67,9 +112,17 @@ function DetailPage() {
                                     Xem ngay
                                 </span>
                             </a>
-                            <span>
-                                <FontAwesomeIcon icon="plus"></FontAwesomeIcon>
-                                Phim của tôi
+                            <span onClick={HandleClick}>
+                                { !check?
+                                <FontAwesomeIcon icon="plus"></FontAwesomeIcon> : 
+                                <i class="fas fa-check"></i>
+                                }
+
+                                {
+                                    !check? "Phim của tôi" : "Đã thêm"
+                                }
+                                
+                                
 
                             </span>
                         </div>
@@ -142,6 +195,7 @@ function DetailPage() {
             </div>
             <Footer></Footer>
         </div>
+}
         </>
     )
 }

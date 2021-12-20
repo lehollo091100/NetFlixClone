@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css'
 import logo from '../../image/netflixlogo.png'
 import exit from '../../image/exit.png'
@@ -6,30 +6,78 @@ import wrapper from '../../image/wrapper.jpg'
 import Footer from '../Footer/Footer';
 import { Link, useHistory } from 'react-router-dom';
 import Home from '../Home/Home';
+import { render } from '@testing-library/react';
+import User from '../DetailUser/User';
+import Confirm from './Confirm';
+import ConfirmError from './ConfirmError';
+import Loading from '../Loading/Loading';
 
 function Login(){
     let history = useHistory();
+   
+    const [showModal, setShow] = useState(false);
+    const [showModalError, setShowE] = useState(false);
     const [success, setSuccess]= useState(false);
     function Close(){
-        history.goBack();
+        history.push("/");
     }
+    const [loading, setLoading] = useState(false);
+    useEffect(()=>{
+        function Load()
+        {
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+            },500)
+        }
+        Load()
+    },[])
+    useEffect(()=>{
+        if(showModalError == true || showModal == true)
+        {
+            var x = document.getElementsByClassName("Login__modal");
 
+            for(var i=0; i < x.length ;i++)
+            {
+                x[i].style.filter = "brightness(30%)"
+            }
+        }
+        else
+        {
+            var x = document.getElementsByClassName("Login__modal");
+
+            for(var i=0; i < x.length ;i++)
+            {
+                x[i].style.filter = "brightness(100%)"
+            }
+        }
+    })
     const LoginHandler = e =>{
         e.preventDefault();
         let username = document.getElementById("text").value;
         let password = document.getElementById("password").value;
         if(username === "tinpham1510" && password === "12345678")
         {
-            setSuccess(true);   
-            history.push('/home');
+            
+            setSuccess(true);  
+           
             localStorage.setItem("token" ,"12345678");
+        }
+
+        if(localStorage.getItem("token")!=null)
+        {
+            setShow(true);
+        }
+        else
+        {
+            setShowE(true);
         }
         console.log(success);
     }
     return (
         <>
         {
-            success ? <Home/>:
+         loading? <Loading/> :
         <div className="Login">
             <div className="Login__container">
                 <div className="Login__container-wrapper">
@@ -65,7 +113,9 @@ function Login(){
                     </form>
                     <div className="Login__modal-tocheck">
                         <a className="Login__tocheck-Bx">
-                            <input type="checkbox" ></input>
+                                <input type="checkbox" id='check-box-1' className='
+                                apprearance-none h-32 w-32 border-2 rounded-3xl'></input>
+                            
                             <span>
                                 Lưu mật khẩu
                             </span>
@@ -102,7 +152,10 @@ function Login(){
                     </a> tại đây</p>
 
                 </div>
+                <Confirm showModal={showModal} setShow={setShow}/>
+                <ConfirmError showModal={showModalError} setShow={setShowE}/>
             </div>
+            
             <br/>
             <Footer/>
         </div>

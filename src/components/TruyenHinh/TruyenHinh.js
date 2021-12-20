@@ -1,15 +1,29 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FilmList from '../FilmList/FilmList'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
+import Loading from '../Loading/Loading'
 import  './TruyenHinh.css'
 
 function TruyenHinh({cate}) {
     const cateClick=()=>{
         document.querySelector('.category__wrapper').classList.toggle('active')
     }
+    const [loading, setLoading] = useState(false);
+    useEffect(()=>{
+        function Load()
+        {
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+            },500)
+        }
+        Load()
+    },[])
     return (
+        <>
+        { loading? <Loading/>:
         <div className="cate">
             <Header></Header>
             <div className="cate__wrapper">
@@ -128,6 +142,8 @@ function TruyenHinh({cate}) {
             </div>
             <Footer></Footer>
         </div>
+}
+</>
     )
 }
 

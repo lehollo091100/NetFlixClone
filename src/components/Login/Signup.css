@@ -79,7 +79,7 @@
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 2px solid white;
+    border: 2px solid red;
     font-size: 14px;
     letter-spacing: 1px;
     color: white;
@@ -92,7 +92,7 @@
     border: 2px solid red;
 }
 
-.Signup__modal .Signup__modal-panel input[type="submit"]{
+.Signup__modal .Signup__modal-panel button{
     width: 70%;
     padding: 10px 20px;
     outline: none;
@@ -107,12 +107,12 @@
     transition: background-color .3s ease;
 }
 
-.Signup__modal .Signup__modal-panel input[type="submit"]:hover{
+.Signup__modal .Signup__modal-panel button:hover{
     background-color: #EA0707;
     cursor: pointer;
 }
 
-.Signup__modal .Signup__modal-panel input[type="submit"]:active{
+.Signup__modal .Signup__modal-panel button:active{
     cursor: pointer;
     box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.4);
 }

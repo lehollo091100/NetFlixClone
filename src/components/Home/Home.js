@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import FilmList from './../FilmList/FilmList';
+import Loading from '../Loading/Loading'
 function Home() {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
@@ -19,6 +20,17 @@ function Home() {
             console.log(error)
         })
     }, [])
+    const [loading, setLoading] = useState(false);
+    useEffect(()=>{
+        function Load()
+        {
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+            },500)
+        }
+        Load()
+    },[])
     const handleMuteItem=()=>{
         document.querySelector('.home__item-img .mute__icon').classList.toggle('mute')
     }
@@ -44,6 +56,8 @@ function Home() {
           ]
       };
     return (
+        <>
+        { loading? <Loading/> :
         <div className="home">
             <Header cate="home"></Header>
             <Slider settings>
@@ -102,6 +116,9 @@ function Home() {
             </div>
             <Footer></Footer>
         </div>
+}
+</>
+
     )
 }
 

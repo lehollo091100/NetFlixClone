@@ -7,7 +7,7 @@ import {faListAlt, faComment , faQuestionCircle ,faCog,faGlobe,faSearch,faBell,f
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
-import {  BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
+import {  BrowserRouter as Router,Route,Link, Switch} from 'react-router-dom'
 import TruyenHinh from './components/TruyenHinh/TruyenHinh';
 import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
@@ -15,6 +15,8 @@ import Intro from './components/Intro/Intro';
 import DetailPage from './components/DetailPage/DetailPage';
 import WatchPage from './components/WatchPage/WatchPage';
 import User from './components/DetailUser/User'
+import Confirm from './components/Login/Confirm';
+import Toast from './components/ToastMessage/Toast';
 function App() {
   return (
     <Router>

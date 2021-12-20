@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FilmList from '../FilmList/FilmList';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import './WatchPage.css';
 import ReactPlayer from 'react-player';
+import Loading from '../Loading/Loading';
 function WatchPage() {
     
+    const [loading, setLoading] = useState(false);
+    useEffect(()=>{
+        function Load()
+        {
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+            },500)
+        }
+        Load()
+    },[])
     return (
+        <>
+        { loading? <Loading/>:
         <div>
             <Header cate="home"/>
             <div className="watchpage">
@@ -46,6 +60,8 @@ function WatchPage() {
             </div>
             <Footer/>
         </div>
+}
+</>
     );
 }
 

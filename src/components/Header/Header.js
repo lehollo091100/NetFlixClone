@@ -29,6 +29,10 @@ function Header() {
         history.push("/");
         setUser(null);
     }
+
+    const handleUsser=()=>{
+       history.push("/user");
+    }
     const [user,setUser]=useState(null);
     const [noti,setNoti]=useState(null);
     const [movieList,setMovieList]=useState([])
@@ -126,7 +130,7 @@ function Header() {
                                     <div className="account__wrap">
                                         <span className="header__avatar-arrow-up"></span>
                                         <ul className="account__list">
-                                            <li className="account__list-item">
+                                            <li onClick={handleUsser} className="account__list-item">
                                                 <img src={avatar} className="account__item-image" alt="" />
                                                 <span className="account__item-name">Thien</span>
                                             </li>

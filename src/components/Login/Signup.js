@@ -1,14 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Signup.css'
 import logo from '../../image/netflixlogo.png'
 import exit from '../../image/exit.png'
 import wrapper from '../../image/wrapper.jpg'
 import Footer from '../Footer/Footer';
 import { Link, useHistory } from 'react-router-dom';
+import Confirm from './Confirm';
+import ConfirmError from './ConfirmError';
 function Signup(){
     let history = useHistory(); 
+    const [success, setSuccess]= useState(false);
+    const [showModal, setShow] = useState(false);
+    const [showModalError, setShowE] = useState(false);
     function Close(){
         history.push("/");
+    }
+    useEffect(()=>{
+        if(showModalError == true || showModal == true)
+        {
+            var x = document.getElementsByClassName("Signup__modal");
+
+            for(var i=0; i < x.length ;i++)
+            {
+                x[i].style.filter = "brightness(30%)"
+            }
+        }
+        else
+        {
+            var x = document.getElementsByClassName("Signup__modal");
+
+            for(var i=0; i < x.length ;i++)
+            {
+                x[i].style.filter = "brightness(100%)"
+            }
+        }
+    })
+    const LoginHandler = e =>{
+        e.preventDefault();
+        let username = document.getElementById("mail").value;
+        let password = document.getElementById("password").value;
+        let repass = document.getElementById("repass").value;
+        
+        if(username === "tinpham1510@gmail.com" && password === "123456" && repass === "123456")
+        {
+            
+            setSuccess(true);  
+           
+            localStorage.setItem("token" ,"12345678");
+        }
+
+        if(localStorage.getItem("token")!=null)
+        {
+            setShow(true);
+        }
+        else
+        {
+            setShowE(true);
+        }
+        console.log(success);
     }
     return (
         <div className="Signup">
@@ -33,18 +82,18 @@ function Signup(){
                         <div className="Signup__modal-panel">
                             <br/>
                             <a>
-                                <input type="email" placeholder="Email hoặc số điện thoại"></input>
+                                <input type="email" placeholder="Email hoặc số điện thoại" id='mail'></input>
                             </a>
                             <a>
-                                <input  type="password" placeholder="Mật khẩu" ></input>
+                                <input  type="password" placeholder="Mật khẩu" id='password' ></input>
                             </a>
                             <a>
-                                <input  type="password" placeholder="Nhập lại mật khẩu" ></input>
+                                <input  type="password" placeholder="Nhập lại mật khẩu" id='repass'></input>
                             </a>
                         </div>
                         <div className="Signup__modal-panel">
                             <br/>
-                            <input  type="submit" value="Đăng ký"></input>
+                            <button onClick={LoginHandler}>Đăng ký</button>
                         </div>
                         <div className="Signup__modal-tocheck">
                             <a className="Signup__tocheck-Bx">
@@ -67,6 +116,8 @@ function Signup(){
                     </form>
                 </div>
             </div>
+            <Confirm showModal={showModal} setShow={setShow}/>
+            <ConfirmError showModal={showModalError} setShow={setShowE}/>
             <br/>
             <Footer/>
         </div>

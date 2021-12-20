@@ -38,15 +38,6 @@ function Intro() {
                         <img src={logo} alt="" />
                     </div>
                     <div className="intro__navbar-right">
-                        <span className="intro__language" onClick={chooseLanguage}>
-                            <FontAwesomeIcon icon="globe"></FontAwesomeIcon>
-                            Tiếng Việt
-                            <FontAwesomeIcon icon="caret-down"></FontAwesomeIcon>
-                            <div className="intro__language-choice" >
-                                <span className="language__choice">Tiếng Việt</span>
-                                <span   className="language__choice">EngLish</span>
-                            </div>
-                        </span>
                         {
                             token? <Link to="/home" className="intro__login">Đăng nhập</Link>:
                         <Link to="/login" className="intro__login">Đăng nhập</Link>

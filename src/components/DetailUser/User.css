@@ -1,6 +1,6 @@
 .User__container{
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: 8%;
     border-radius: 5px;
@@ -69,7 +69,7 @@
     border-radius: 10px;
     height: 90px;
     width: 70%;
-    margin-left: 15%;
+    
 }
 
 .User__logs_card-field img{
@@ -82,4 +82,6 @@
     color: white;
     font-size: 16px;
 }
+
+
 

@@ -78,7 +78,7 @@
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 2px solid white;
+    border: 2px solid red;
     font-size: 14px;
     letter-spacing: 1px;
     color: white;
@@ -127,6 +127,11 @@
 
 .Login__modal .Login__modal-tocheck span{
     font-size: 14px;
+}
+
+.Login__modal .Login__modal-tocheck .Login__tocheck-Bx input[type="checkbox"]{
+    background-color: transparent;
+    overflow: hidden;
 }
 /*-----------------------Login Modal Divided Bar-----------------------------r*/
 .Login__modal .Login__modal-divide{
