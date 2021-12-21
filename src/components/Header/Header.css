@@ -154,16 +154,17 @@
   align-items: center;
 }
 .header .header__wrapper .header__right .header__search {
-  border: 1px white solid;
   margin-right: 10px;
   display: flex;
   align-items: center;
-  padding: 15px 14px;
+  padding: 15px 0px;
+  border: none;
 }
 .header .header__wrapper .header__right .header__search.active {
+  border: 1px white solid;
   margin-right: 0;
-  padding: 0;
-  border: none;
+  margin-right: 15px;
+  padding: 15px 14px 15px 14px;
 }
 .header .header__wrapper .header__right .header__search .icon {
   color: white;
@@ -174,15 +175,21 @@
   margin-right: 10px;
 }
 .header .header__wrapper .header__right .header__search input {
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
+  outline: none;
+  border: none;
+  display: none;
+}
+.header .header__wrapper .header__right .header__search.active input {
+  display: block;
   width: 300px;
   background-color: transparent;
   font-size: 16px;
   color: white;
   outline: none;
   border: none;
-}
-.header .header__wrapper .header__right .header__search.active input {
-  display: none;
 }
 
 .header .header__wrapper .header__right .header__noti {
@@ -369,6 +376,18 @@
   color: grey;
 }
 
+.header__right .button__login {
+  padding: 11px 32px;
+  font-size: 18px;
+  background-color: var(--red);
+}
+.header__right .button__login:hover {
+  background-color: var(--red1);
+}
+.header__right .button__login:active {
+  box-shadow: var(--boxshadow1);
+}
+
 /*=============================RESPONSIVE======================= */
 @media (max-width: 320px) {
   .header__container .header__logo {
@@ -397,6 +416,12 @@
   .header .header__wrapper .header__right .icon:nth-child(2) {
     font-size: 12px;
   }
+}
+#myBtn {
+  width: 0;
+  opacity: 0;
+  cursor: pointer;
+  visibility: hidden;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {

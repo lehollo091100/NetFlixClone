@@ -8,6 +8,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import FilmList from './../FilmList/FilmList';
 import Loading from '../Loading/Loading'
+import FilmListWatching from '../FilmListWatching/FilmList'
 function Home() {
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
@@ -86,7 +87,18 @@ function Home() {
                 
             </Slider>
 
-            
+            <div className="home__slider">
+                <a href="" className="home__slider-header">
+                    <span>
+                        Phim đã/đang xem
+                        <span className="watch__all">
+                            <span>Xem tất cả</span>
+                            <FontAwesomeIcon icon="chevron-right" className="home__slider-arrowright"></FontAwesomeIcon>
+                        </span>
+                    </span>
+                </a>
+                <FilmListWatching/>
+            </div>
             <div className="home__slider">
                 <a href="" className="home__slider-header">
                     <span>

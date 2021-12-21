@@ -13,13 +13,32 @@ function useQuery() {
     return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 function Header() {
+    const [searchValue,setSearchValue]=useState(null);
     let query=useQuery();
     let history = useHistory();
+    var input = document.getElementById("search");
+    // Execute a function when the user releases a key on the keyboard
+    if(input)
+    {
+        input.addEventListener("keyup", function(event) {
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.code  === 'Enter') {
+                console.log('yes');
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                handleSearching();
+            }
+        });
+    }
     const handleMobileSearch=()=>{
         document.querySelector('.header__navigation-search').classList.toggle('active')
     }
     const handleSearch=()=>{
         document.querySelector('.header__search').classList.toggle('active');
+    }
+    const handleSearching=()=>{
+        history.push(`/phim?loai=${searchValue}`);
     }
     const handleNotiDropdown=()=>{
         document.querySelector('.header__noti').classList.toggle('active');
@@ -172,7 +191,10 @@ function Header() {
                         <div className="header__right">
                             <div className='header__search'>
                                 <FontAwesomeIcon className="icon" icon="search" onClick={handleSearch}></FontAwesomeIcon>
-                                <input type="text" placeholder='Tên phim, diễn viên, thể loại,...' />
+                                <input id="search" onChange={(e)=>{
+                                    setSearchValue(e.target.value)
+                                }} type="text" onSubmit={handleSearching} placeholder='Tên phim, diễn viên, thể loại,...' />
+                                <input type="submit" id="myBtn" />
                             </div>
                             {user?
                             <div className="header__login">
@@ -212,7 +234,10 @@ function Header() {
                                             </li>
                                             <li className="account__list-item">
                                             <FontAwesomeIcon icon="list-alt"></FontAwesomeIcon>
-                                            Phim của tôi </li>
+                                            <a href="/phim?loai=Phim của tôi">
+                                            Phim của tôi
+                                            </a>
+                                             </li>
                                             <li className="account__list-item">
                                             <FontAwesomeIcon icon="cog"></FontAwesomeIcon>
                                             Cài đặt</li>
@@ -228,7 +253,10 @@ function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>:null
+                            </div>:
+                            <a href='/login' className='button__login'>
+                                Đăng nhập
+                            </a>
                             }
                         </div>
                     </div>

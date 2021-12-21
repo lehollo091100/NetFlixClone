@@ -4,6 +4,7 @@ import FilmList from '../FilmList/FilmList'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import Loading from '../Loading/Loading'
+import LoadingFilm from '../LoadingFilm/LoadingFilm'
 import  './TruyenHinh.css'
 import axios from 'axios'
 import {
@@ -19,9 +20,11 @@ function useQuery() {
     return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 function TruyenHinh({cate}) {
+    const location=useLocation();
     const baseUrl='https://image.tmdb.org/t/p/original';
     const [movieList,setMovieList]=useState([])
     const [num, setNum] = useState(0);
+    const [currentItems,setCurrentItems]=useState(0);
     useEffect(() => {
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=070460ee0b557df99bd8fd941d183e23')
         .then(function(response){
@@ -61,11 +64,12 @@ function TruyenHinh({cate}) {
     const handleSearch=()=>{
         if(value1==null&&value2==null)
         {
+            window.location.reload();
             history.push(`/home`);
         }
         else{
-
             history.push(`/phim?loai=${value1}&quocgia=${value2}`);
+            window.location.reload();
         }
         setValue1(null);
         setValue2(null);
@@ -95,17 +99,8 @@ function TruyenHinh({cate}) {
           }
         }
       }
+    console.log(movieList);
     const [loading, setLoading] = useState(false);
-    useEffect(()=>{
-        function Load()
-        {
-            setLoading(true);
-            setTimeout(()=>{
-                setLoading(false);
-            },500)
-        }
-        Load()
-    },[])
     return (
         <>
         { loading? <Loading/>:
@@ -118,7 +113,7 @@ function TruyenHinh({cate}) {
                             query.get("loai")!='null'?query.get("loai"):''
                         }</h1>
                         <h1>{
-                            query.get("loai")!='null'?'/':''
+                            query.get("loai")!='null'&&query.get("loai")!='Phim của tôi'?'/':''
                             
                         }</h1>
                         <h1>
@@ -223,6 +218,7 @@ function TruyenHinh({cate}) {
                 <br/>
                 <div className="cate__slider">
                         {
+                        movieList.length==0? <LoadingFilm/>:
                         movieList&&movieList.map(movie=>(
                         <a className="home__slider-item" href="/phim/detail">
                             <img className="home__slider-item-img" src={movie? baseUrl.concat(movie.poster_path):''} alt="" />
@@ -250,7 +246,7 @@ function TruyenHinh({cate}) {
 
             </div>
             <br/>
-            <Pagination movieList={movieList} num={num} setNum={setNum}/>
+            <Pagination num={num} setNum={setNum} setMovieList={setMovieList} setLoading={setLoading}/>
             <Footer></Footer>
         </div>
 }
